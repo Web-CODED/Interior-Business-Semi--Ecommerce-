@@ -1,0 +1,23 @@
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+export const metadata: Metadata = {
+  title: "Studio — Premium Interior Design",
+  description:
+    "Interiors crafted around how you actually live. Kitchen, living room, bedroom and office design with a premium, considered finish.",
+};
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en" className={inter.variable}>
+      <body>{children}</body>
+    </html>
+  );
+}

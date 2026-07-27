@@ -1,0 +1,155 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   PART 9 — DESIGN TOKENS
+   Single source of truth. Never hardcode values in components — consume
+   these tokens via Tailwind utility classes (e.g. bg-primary-500, rounded-card).
+   ========================================================================== */
+
+@theme {
+  /* ---- Color: Primary (Coral) ---- */
+  --color-primary-50: #FFF5F2;
+  --color-primary-100: #FFE8E1;
+  --color-primary-200: #FFD1C4;
+  --color-primary-300: #FFB29D;
+  --color-primary-400: #FF8D73;
+  --color-primary-500: #F56A4F;
+  --color-primary-600: #E3553D;
+  --color-primary-700: #C54532;
+  --color-primary-800: #A6392A;
+  --color-primary-900: #7F2D22;
+
+  /* ---- Color: Secondary (Deep Plum) ---- */
+  --color-secondary-50: #F8F6FA;
+  --color-secondary-100: #F0ECF4;
+  --color-secondary-200: #E2DAEA;
+  --color-secondary-300: #CCB8D4;
+  --color-secondary-400: #A889B2;
+  --color-secondary-500: #815F8E;
+  --color-secondary-600: #684B72;
+  --color-secondary-700: #543C5D;
+  --color-secondary-800: #432F49;
+  --color-secondary-900: #2E2133;
+
+  /* ---- Color: Neutral ---- */
+  --color-neutral-50: #FFFFFF;
+  --color-neutral-100: #FCFCFC;
+  --color-neutral-200: #F7F7F7;
+  --color-neutral-300: #EFEFEF;
+  --color-neutral-400: #DDDDDD;
+  --color-neutral-500: #B9B9B9;
+  --color-neutral-600: #8C8C8C;
+  --color-neutral-700: #616161;
+  --color-neutral-800: #3A3A3A;
+  --color-neutral-900: #1F1F1F;
+
+  /* ---- Color: Semantic ---- */
+  --color-success-50: #F3FCF5;
+  --color-success-100: #DDF7E5;
+  --color-success-500: #34A853;
+  --color-success-700: #23763A;
+
+  --color-warning-50: #FFF8E7;
+  --color-warning-100: #FDECC2;
+  --color-warning-500: #F5A623;
+  --color-warning-700: #B9770E;
+
+  --color-error-50: #FFF1F1;
+  --color-error-100: #FFD9D9;
+  --color-error-500: #E53935;
+  --color-error-700: #B3261E;
+
+  --color-info-50: #F1F7FF;
+  --color-info-100: #DCEBFF;
+  --color-info-500: #4285F4;
+  --color-info-700: #2859B8;
+
+  /* ---- Typography ---- */
+  --font-sans: "Inter", system-ui, sans-serif;
+
+  --text-hero: 3.625rem;       /* 58px */
+  --text-hero-mobile: 2.125rem; /* 34px */
+  --text-section: 2.625rem;    /* 42px */
+  --text-section-mobile: 1.875rem; /* 30px */
+  --text-subheading: 1.75rem;  /* 28px */
+  --text-card: 1.375rem;       /* 22px */
+  --text-body-lg: 1.125rem;    /* 18px */
+  --text-body: 1rem;           /* 16px */
+  --text-caption: 0.875rem;    /* 14px */
+  --text-small: 0.8125rem;     /* 13px */
+
+  /* ---- Radius ---- */
+  --radius-sm: 0.75rem;    /* 12px */
+  --radius-input: 1rem;    /* 16px */
+  --radius-button: 1rem;   /* 16px */
+  --radius-card: 1.5rem;   /* 24px */
+  --radius-feature: 1.75rem; /* 28px */
+  --radius-calculator: 2rem; /* 32px */
+  --radius-cta: 2.25rem;   /* 36px */
+  --radius-badge: 999px;
+
+  /* ---- Spacing scale (2,4,8,12,16,20,24,32,40,48,56,64,80,96,128,160) ---- */
+  --spacing-0_5: 0.125rem;
+  --spacing-4-5: 1.125rem;
+
+  /* ---- Shadows ---- */
+  --shadow-level-1: 0 6px 24px rgba(0, 0, 0, 0.06);
+  --shadow-level-2: 0 12px 36px rgba(0, 0, 0, 0.08);
+  --shadow-level-3: 0 18px 48px rgba(0, 0, 0, 0.12);
+  --shadow-hover: 0 18px 42px rgba(0, 0, 0, 0.10);
+
+  /* ---- Motion durations ---- */
+  --duration-hover: 220ms;
+  --duration-standard: 300ms;
+  --duration-hero: 700ms;
+  --duration-page: 600ms;
+
+  /* ---- Breakpoints ---- */
+  --breakpoint-xs: 20rem;    /* 320px */
+  --breakpoint-sm: 48rem;    /* 768px  - Tablet */
+  --breakpoint-md: 64rem;    /* 1024px - Laptop */
+  --breakpoint-lg: 80rem;    /* 1280px - Desktop */
+  --breakpoint-xl: 90rem;    /* 1440px - Wide */
+  --breakpoint-2xl: 120rem;  /* 1920px - Ultra */
+}
+
+/* ---- Background & overlay tokens (not expressible as @theme colors) ---- */
+:root {
+  --bg-page: var(--color-neutral-100);
+  --bg-section-alt: var(--color-neutral-200);
+  --bg-footer: var(--color-secondary-900);
+
+  --overlay-hero: rgba(0, 0, 0, 0.42);
+  --overlay-light: rgba(255, 255, 255, 0.65);
+  --overlay-dark: rgba(0, 0, 0, 0.55);
+  --overlay-glass: rgba(255, 255, 255, 0.70);
+  --blur-backdrop: 16px;
+
+  --z-header: 100;
+  --z-drawer: 200;
+  --z-overlay: 300;
+  --z-modal: 400;
+  --z-toast: 500;
+  --z-floating: 600;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-page);
+  color: var(--color-neutral-900);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: -0.01em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
