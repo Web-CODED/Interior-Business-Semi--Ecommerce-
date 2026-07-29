@@ -41,15 +41,23 @@ export function Header() {
       )}
     >
       <Container className="flex h-full items-center justify-between">
-        <a href="/" className="flex items-center" aria-label="Ganpati Interiors — Home">
+        <a href="/" className="flex items-center gap-2.5" aria-label="Ganpati Interiors — Home">
           <Image
             src="/images/logo.png"
-            alt="Ganpati Interiors"
-            width={160}
-            height={42}
+            alt=""
+            width={44}
+            height={44}
             priority
-            className="h-[34px] lg:h-[42px] w-auto object-contain"
+            className="h-[32px] lg:h-[40px] w-auto object-contain shrink-0"
           />
+          <span
+            className={cn(
+              "text-lg lg:text-xl font-bold tracking-tight whitespace-nowrap transition-colors duration-300",
+              scrolled ? "text-neutral-900" : "text-white"
+            )}
+          >
+            Ganpati Interiors
+          </span>
         </a>
 
         <nav className="hidden lg:flex items-center gap-9" aria-label="Primary">
