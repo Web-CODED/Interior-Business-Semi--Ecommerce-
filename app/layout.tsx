@@ -9,7 +9,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Studio — Premium Interior Design",
+  title: "Ganpati Interiors — Complete Interior & Décor Solutions",
   description:
     "Interiors crafted around how you actually live. Kitchen, living room, bedroom and office design with a premium, considered finish.",
 };
