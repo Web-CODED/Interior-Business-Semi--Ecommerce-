@@ -36,7 +36,7 @@ export function Testimonials() {
             640: { slidesPerView: 1.3 },
             1024: { slidesPerView: 3 },
           }}
-          className="!overflow-visible !pb-2"
+          className="!pb-2"
         >
           {TESTIMONIALS.map((testimonial) => (
             <SwiperSlide key={testimonial.id} className="!h-auto">

@@ -77,7 +77,6 @@ export function InspirationGallery() {
             768: { slidesPerView: 3 },
             1024: { slidesPerView: 4 },
           }}
-          className="!overflow-visible"
         >
           {filteredItems.map((item) => (
             <SwiperSlide key={item.id} className="!w-auto">
