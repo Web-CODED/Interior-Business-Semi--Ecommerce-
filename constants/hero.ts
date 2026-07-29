@@ -7,17 +7,17 @@ export interface HeroSlide {
 export const HERO_SLIDES: HeroSlide[] = [
   {
     id: "slide-1",
-    image: "/images/hero/hero-1.jpg",
+    image: "/hero/hero1.jpg",
     alt: "Bright modern living room with warm natural light",
   },
   {
     id: "slide-2",
-    image: "/images/hero/hero-2.jpg",
+    image: "/hero/hero2.jpg",
     alt: "Minimalist kitchen with soft coral accents",
   },
   {
     id: "slide-3",
-    image: "/images/hero/hero-3.jpg",
+    image: "/hero/hero3.jpg",
     alt: "Elegant bedroom interior with layered textures",
   },
 ];
