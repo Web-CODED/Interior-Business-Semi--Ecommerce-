@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Container } from "@/components/ui/Container";
@@ -40,15 +41,15 @@ export function Header() {
       )}
     >
       <Container className="flex h-full items-center justify-between">
-        <a href="#home" className="flex items-center" aria-label="Home">
-          <span
-            className={cn(
-              "text-xl font-bold tracking-tight transition-colors duration-300",
-              scrolled ? "text-neutral-900" : "text-white"
-            )}
-          >
-            Studio<span className="text-primary-500">.</span>
-          </span>
+        <a href="/" className="flex items-center" aria-label="Ganpati Interiors — Home">
+          <Image
+            src="/images/logo.png"
+            alt="Ganpati Interiors"
+            width={160}
+            height={42}
+            priority
+            className="h-[34px] lg:h-[42px] w-auto object-contain"
+          />
         </a>
 
         <nav className="hidden lg:flex items-center gap-9" aria-label="Primary">
@@ -106,7 +107,7 @@ export function Header() {
               aria-modal="true"
             >
               <div className="flex items-center justify-between">
-                <span className="text-xl font-bold text-neutral-900">Studio.</span>
+                <span className="text-xl font-bold text-neutral-900">Ganpati Interiors</span>
                 <button
                   aria-label="Close menu"
                   className="flex size-12 items-center justify-center"
