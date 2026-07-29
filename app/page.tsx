@@ -1,6 +1,11 @@
 import { Header } from "@/components/layout/Header";
 import { Hero } from "@/sections/Hero";
 import { Services } from "@/sections/Services";
+import { InspirationGallery } from "@/sections/InspirationGallery";
+import { WhyChooseUs } from "@/sections/WhyChooseUs";
+import { Testimonials } from "@/sections/Testimonials";
+import { Process } from "@/sections/Process";
+import { Statistics } from "@/sections/Statistics";
 
 export default function HomePage() {
   return (
@@ -9,9 +14,13 @@ export default function HomePage() {
       <main>
         <Hero />
         <Services />
-        {/* Next up: CategoryChips, InspirationGallery, WhyChooseUs, Testimonials,
-            Process, Statistics, EstimateCalculator, ProjectShowcase, BeforeAfter,
-            Gallery, Awards, Media, FAQ, FinalCTA, Newsletter, Footer */}
+        <InspirationGallery />
+        <WhyChooseUs />
+        <Testimonials />
+        <Process />
+        <Statistics />
+        {/* Next up: EstimateCalculator, ProjectShowcase, BeforeAfter, Gallery,
+            Awards, Media, FAQ, FinalCTA, Newsletter, Footer */}
       </main>
     </>
   );
