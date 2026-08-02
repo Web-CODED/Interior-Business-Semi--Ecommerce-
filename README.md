@@ -31,6 +31,10 @@ Add your own images to:
   logo image, nav links to `/catalogues`).
 - **Catalogues page** (`/catalogues`) — all 12 product categories in a grid,
   sourced from the single `constants/products.ts` list.
+- **Footer** — brand block with socials, Quick Links + Services (accordion on
+  mobile, static columns on desktop), Contact info, working newsletter form
+  (local state only — wire up a real endpoint later), legal bottom row.
+  Rendered on both the homepage and Catalogues page.
 - **Homepage sections**:
   - `Hero` — autoplay slider, stats chips, scroll indicator
   - `Services` — 4-card grid with hover lift/zoom
@@ -52,7 +56,6 @@ homepage Featured strip (currently 6 are featured).
 ## Next up
 
 Estimate Calculator → Project Showcase → Before/After → Gallery → Awards →
-Media → FAQ → Final CTA → Newsletter → Footer.
-
-Say the word and I'll keep building section by section, reusing the
-`Container`, `SectionTitle`, `Card`, and `Button` components already in place.
+Media → FAQ → Final CTA → Newsletter section (standalone, separate from the
+footer's newsletter). After that: uploading real product photos, preloader
+animation, and section-by-section CSS polish.
