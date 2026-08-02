@@ -1,4 +1,5 @@
 import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/sections/Hero";
 import { Services } from "@/sections/Services";
 import { Featured } from "@/sections/Featured";
@@ -22,8 +23,9 @@ export default function HomePage() {
         <Process />
         <Statistics />
         {/* Next up: EstimateCalculator, ProjectShowcase, BeforeAfter, Gallery,
-            Awards, Media, FAQ, FinalCTA, Newsletter, Footer */}
+            Awards, Media, FAQ, FinalCTA, Newsletter */}
       </main>
+      <Footer />
     </>
   );
 }
