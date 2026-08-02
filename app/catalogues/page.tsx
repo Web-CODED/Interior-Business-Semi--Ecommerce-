@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
 import { Container } from "@/components/ui/Container";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { CatalogueGrid } from "@/components/catalogue/CatalogueGrid";
@@ -27,6 +28,7 @@ export default function CataloguesPage() {
           </Container>
         </section>
       </main>
+      <Footer />
     </>
   );
 }
