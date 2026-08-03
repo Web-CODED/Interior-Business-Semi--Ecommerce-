@@ -15,7 +15,7 @@ export interface Product {
  * no code changes needed after that.
  */
 function gallery(slug: string, count: number): string[] {
-  return Array.from({ length: count }, (_, i) => `/images/products/${slug}/${i + 1}.jpg`);
+  return Array.from({ length: count }, (_, i) => `/images/products/${slug}/${i + 1}.jpeg`);
 }
 
 /**
