@@ -23,7 +23,7 @@ export function ProductCard({ product }: ProductCardProps) {
     >
       <div className="relative aspect-[4/3] w-full overflow-hidden bg-neutral-200">
         <Image
-          src={product.image}
+          src={product.images[0]}
           alt={product.title}
           fill
           sizes="(min-width: 1024px) 25vw, 50vw"
