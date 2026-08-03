@@ -2,20 +2,22 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { AnimatePresence, motion } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
 import { NAV_LINKS } from "@/constants/navigation";
+import { useMobileMenu } from "@/components/layout/MobileMenuContext";
 
 /**
  * Sticky site header (Part 2). Transparent over the hero image, switches to
  * a solid white background with a soft shadow after 40px of scroll.
+ * The mobile hamburger and the BottomNav's "More" button share one drawer
+ * via MobileMenuContext, so either entry point opens the same panel.
  */
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
-  const [drawerOpen, setDrawerOpen] = useState(false);
+  const { setOpen } = useMobileMenu();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -23,13 +25,6 @@ export function Header() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
-  useEffect(() => {
-    document.body.style.overflow = drawerOpen ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [drawerOpen]);
 
   return (
     <header
@@ -88,61 +83,11 @@ export function Header() {
             scrolled ? "text-neutral-900" : "text-white"
           )}
           aria-label="Open menu"
-          aria-expanded={drawerOpen}
-          onClick={() => setDrawerOpen(true)}
+          onClick={() => setOpen(true)}
         >
           <Menu className="size-6" />
         </button>
       </Container>
-
-      <AnimatePresence>
-        {drawerOpen && (
-          <>
-            <motion.div
-              className="fixed inset-0 z-[199] bg-black/45"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setDrawerOpen(false)}
-            />
-            <motion.div
-              className="fixed right-0 top-0 z-[200] h-full w-[85%] max-w-sm bg-white p-6 flex flex-col gap-6"
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ duration: 0.32, ease: "easeInOut" }}
-              role="dialog"
-              aria-modal="true"
-            >
-              <div className="flex items-center justify-between">
-                <span className="text-xl font-bold text-neutral-900">Ganpati Interiors</span>
-                <button
-                  aria-label="Close menu"
-                  className="flex size-12 items-center justify-center"
-                  onClick={() => setDrawerOpen(false)}
-                >
-                  <X className="size-6 text-neutral-900" />
-                </button>
-              </div>
-              <nav className="flex flex-col gap-6" aria-label="Mobile">
-                {NAV_LINKS.map((link) => (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    className="text-lg font-medium text-neutral-900"
-                    onClick={() => setDrawerOpen(false)}
-                  >
-                    {link.label}
-                  </a>
-                ))}
-              </nav>
-              <Button size="lg" className="w-full mt-auto">
-                Book Consultation
-              </Button>
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
     </header>
   );
 }
