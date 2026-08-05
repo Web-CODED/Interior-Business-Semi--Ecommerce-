@@ -5,12 +5,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { ChevronDown } from "lucide-react";
 import { Container } from "@/components/ui/Container";
-import { Button } from "@/components/ui/Button";
-import { HERO_SLIDES, HERO_STATS } from "@/constants/hero";
+import { HERO_SLIDES } from "@/constants/hero";
 
 /**
- * Hero (Part 2). Two-column intent on desktop (content left, image fills right/
- * full-bleed background), auto-playing fade slider, fade-up content sequence.
+ * Hero (Part 2, restyled to match the Livspace reference). Each slide is
+ * self-contained — its own image, headline, description, and single CTA —
+ * nothing is shared across slides. Auto-plays every 5s, pauses on hover.
+ * Edit copy per slide in constants/hero.ts.
  */
 export function Hero() {
   const [activeSlide, setActiveSlide] = useState(0);
@@ -24,6 +25,8 @@ export function Hero() {
     return () => clearInterval(id);
   }, [paused]);
 
+  const slide = HERO_SLIDES[activeSlide];
+
   return (
     <section
       id="home"
@@ -35,10 +38,10 @@ export function Hero() {
       <div className="absolute inset-0">
         <AnimatePresence mode="sync">
           {HERO_SLIDES.map(
-            (slide, index) =>
+            (s, index) =>
               index === activeSlide && (
                 <motion.div
-                  key={slide.id}
+                  key={s.id}
                   className="absolute inset-0"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -52,8 +55,8 @@ export function Hero() {
                     transition={{ duration: 9, ease: "linear" }}
                   >
                     <Image
-                      src={slide.image}
-                      alt={slide.alt}
+                      src={s.image}
+                      alt={s.alt}
                       fill
                       priority={index === 0}
                       className="object-cover"
@@ -73,68 +76,43 @@ export function Hero() {
         />
       </div>
 
-      {/* Content */}
+      {/* Content — swaps per slide, cross-fading with the image */}
       <Container className="relative z-10">
         <div className="max-w-[560px]">
-          <motion.h1
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="max-w-[520px] text-[2.125rem] sm:text-[2.875rem] lg:text-[3.625rem] font-bold leading-[1.15] text-white"
-          >
-            Interiors crafted around how you actually live
-          </motion.h1>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={slide.id}
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -16 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+            >
+              <h1 className="max-w-[520px] text-[2.125rem] sm:text-[2.875rem] lg:text-[3.625rem] font-bold leading-[1.15] text-white">
+                {slide.headline}
+              </h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.15, ease: "easeOut" }}
-            className="mt-6 max-w-[480px] text-body sm:text-[1.1875rem] leading-[1.7] text-white/90"
-          >
-            From first sketch to final styling, our designers turn everyday
-            rooms into spaces that feel unmistakably yours.
-          </motion.p>
+              <p className="mt-6 max-w-[480px] text-body sm:text-[1.1875rem] leading-[1.7] text-white/90">
+                {slide.description}
+              </p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
-            className="mt-8 flex flex-col xs:flex-row gap-4"
-          >
-            <Button size="lg" variant="primary">
-              Get Free Estimate
-            </Button>
-            <Button size="lg" variant="outline">
-              View Our Projects
-            </Button>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.45, ease: "easeOut" }}
-            className="mt-10 flex flex-wrap gap-4"
-          >
-            {HERO_STATS.map((stat) => (
-              <div
-                key={stat.label}
-                className="rounded-full bg-white px-4 py-3 shadow-[0_6px_24px_rgba(0,0,0,0.06)]"
-              >
-                <span className="text-body font-semibold text-neutral-900">
-                  {stat.value}
-                </span>{" "}
-                <span className="text-caption text-neutral-600">{stat.label}</span>
+              <div className="mt-8">
+                <a
+                  href={slide.ctaHref}
+                  className="inline-flex h-14 items-center justify-center rounded-button bg-primary-500 px-8 text-body font-semibold text-white transition-all duration-200 ease-out hover:-translate-y-0.5 hover:bg-primary-600 hover:shadow-[0_18px_42px_rgba(0,0,0,0.10)] active:scale-[0.98]"
+                >
+                  {slide.ctaLabel}
+                </a>
               </div>
-            ))}
-          </motion.div>
+            </motion.div>
+          </AnimatePresence>
         </div>
       </Container>
 
       {/* Slider dots */}
       <div className="absolute bottom-6 left-1/2 z-10 flex -translate-x-1/2 gap-2.5">
-        {HERO_SLIDES.map((slide, index) => (
+        {HERO_SLIDES.map((s, index) => (
           <button
-            key={slide.id}
+            key={s.id}
             aria-label={`Go to slide ${index + 1}`}
             onClick={() => setActiveSlide(index)}
             className={`h-2.5 w-2.5 rounded-full transition-all duration-300 ${
