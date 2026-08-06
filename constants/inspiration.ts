@@ -63,7 +63,7 @@ export const INSPIRATION_ITEMS: InspirationItem[] = [
     category: "office",
     video: "/videos/inspiration/executive-focus.mp4",
     poster: "/images/inspiration/6.jpg",
-    instagramUrl: "https://instagram.com/reel/REPLACE_ME_6",
+    instagramUrl: "https://www.instagram.com/reel/DbYQyQVSCNd/?igsh=MWthdnB0a3ZyMGE1YQ==",
   },
   {
     id: "insp-7",
@@ -72,7 +72,7 @@ export const INSPIRATION_ITEMS: InspirationItem[] = [
     category: "classic",
     video: "/videos/inspiration/classic-comfort.mp4",
     poster: "/images/inspiration/7.jpg",
-    instagramUrl: "https://instagram.com/reel/REPLACE_ME_7",
+    instagramUrl: "https://www.instagram.com/reel/DbaU3gtS3QO/?igsh=MXE4MTVocG5tNHZzZA==",
   },
   {
     id: "insp-8",
@@ -81,6 +81,6 @@ export const INSPIRATION_ITEMS: InspirationItem[] = [
     category: "modern",
     video: "/videos/inspiration/soft-contrast.mp4",
     poster: "/images/inspiration/8.jpg",
-    instagramUrl: "https://instagram.com/reel/REPLACE_ME_8",
+    instagramUrl: "https://www.instagram.com/reel/DbSltrfS1aQ/?igsh=ZHZub2JwcmZ3cWx4",
   },
 ];
