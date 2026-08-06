@@ -20,16 +20,14 @@ export const INSPIRATION_ITEMS: InspirationItem[] = [
     category: "minimal",
     video: "/videos/inspiration/coastal-calm.mp4",
     poster: "/images/inspiration/1.jpg",
-    instagramUrl: "https://instagram.com/reel/REPLACE_ME_1",
+    instagramUrl: "https://www.instagram.com/reel/DbkLsBDySmv/?igsh=ZzVyd282Mzdpc3Iy",
   },
   {
     id: "insp-2",
     title: "Warm Minimalism",
     subtitle: "Kitchen",
     category: "kitchen",
-    video: "/videos/inspiration/warm-minimalism.mp4",
-    poster: "/images/inspiration/2.jpg",
-    instagramUrl: "https://instagram.com/reel/REPLACE_ME_2",
+    video: "https://www.instagram.com/reel/DbUuaptylXN/?igsh=MXdlb2xpam1jYzY5cQ==",
   },
   {
     id: "insp-3",
@@ -38,7 +36,7 @@ export const INSPIRATION_ITEMS: InspirationItem[] = [
     category: "modern",
     video: "/videos/inspiration/modern-heritage.mp4",
     poster: "/images/inspiration/3.jpg",
-    instagramUrl: "https://instagram.com/reel/REPLACE_ME_3",
+    instagramUrl: "https://www.instagram.com/reel/Dbe4gTiSTbo/?igsh=MWNhczIyaDdqYXI0ag==",
   },
   {
     id: "insp-4",
@@ -47,7 +45,7 @@ export const INSPIRATION_ITEMS: InspirationItem[] = [
     category: "luxury",
     video: "/videos/inspiration/quiet-luxury.mp4",
     poster: "/images/inspiration/4.jpg",
-    instagramUrl: "https://instagram.com/reel/REPLACE_ME_4",
+    instagramUrl: "https://www.instagram.com/reel/DbhcJcjCrGb/?igsh=MTlkOWFyY29lOGM4Mg==",
   },
   {
     id: "insp-5",
@@ -56,7 +54,7 @@ export const INSPIRATION_ITEMS: InspirationItem[] = [
     category: "wood",
     video: "/videos/inspiration/natural-wood.mp4",
     poster: "/images/inspiration/5.jpg",
-    instagramUrl: "https://instagram.com/reel/REPLACE_ME_5",
+    instagramUrl: "https://www.instagram.com/reel/Dbf3zlqyCiN/?igsh=MW03djQyZ2RjcDJvOQ==",
   },
   {
     id: "insp-6",
