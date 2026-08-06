@@ -2,7 +2,7 @@
 
 import { useState, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
+import { Navigation, Autoplay } from "swiper/modules";
 import type { Swiper as SwiperType } from "swiper";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import "swiper/css";
@@ -15,6 +15,8 @@ import { INSPIRATION_ITEMS } from "@/constants/inspiration";
 
 /**
  * Design Inspiration carousel + category filter chips (Part 3A — Sections 2 & 3).
+ * Auto-advances every 3.5s; manual swipe/arrow interaction still works and
+ * autoplay resumes afterward (disableOnInteraction: false).
  */
 export function InspirationGallery() {
   const [activeCategory, setActiveCategory] = useState("all");
@@ -69,10 +71,12 @@ export function InspirationGallery() {
       {/* Carousel bleeds to the edge on mobile */}
       <div className="pl-6 md:pl-16 lg:pl-20">
         <Swiper
-          modules={[Navigation]}
+          modules={[Navigation, Autoplay]}
           onSwiper={(swiper) => (swiperRef.current = swiper)}
           slidesPerView={1.2}
           spaceBetween={24}
+          loop
+          autoplay={{ delay: 3500, disableOnInteraction: false, pauseOnMouseEnter: true }}
           breakpoints={{
             768: { slidesPerView: 3 },
             1024: { slidesPerView: 4 },
@@ -80,7 +84,13 @@ export function InspirationGallery() {
         >
           {filteredItems.map((item) => (
             <SwiperSlide key={item.id} className="!w-auto">
-              <InspirationCard title={item.title} subtitle={item.subtitle} image={item.image} />
+              <InspirationCard
+                title={item.title}
+                subtitle={item.subtitle}
+                video={item.video}
+                poster={item.poster}
+                instagramUrl={item.instagramUrl}
+              />
             </SwiperSlide>
           ))}
         </Swiper>
