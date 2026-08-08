@@ -1,55 +1,87 @@
 "use client";
 
-import Image from "next/image";
-import { motion } from "framer-motion";
+import { whyChooseUsStats, whyChooseUsHeading } from "@/constants/whyChooseUs";
 import { Container } from "@/components/ui/Container";
-import { SectionTitle } from "@/components/ui/SectionTitle";
-import { FeatureCard } from "@/components/cards/FeatureCard";
-import { FEATURES } from "@/constants/features";
-import { staggerContainer, fadeLeft, viewportOnce } from "@/lib/motion";
+import type { WhyChooseUsStat } from "@/constants/whyChooseUs";
+
+/**
+ * WhyChooseUs
+ *
+ * A continuously auto-scrolling horizontal marquee of stat cards,
+ * matching the Livspace "Why choose us" pattern:
+ *  - Cards drift left endlessly at a constant speed
+ *  - No user interaction required (no drag, no swipe, no arrows)
+ *  - Pauses smoothly on hover / focus
+ *  - Infinite loop achieved by duplicating the track content
+ *
+ * Motion is pure CSS (transform: translateX), which keeps it GPU
+ * accelerated and avoids re-render cost — no Swiper/Framer needed
+ * for a non-interactive marquee like this.
+ */
+
+function StatCard({ stat }: { stat: WhyChooseUsStat }) {
+  const Icon = stat.icon;
+
+  return (
+    <div
+      className="
+        flex w-[220px] shrink-0 flex-col items-start gap-4
+        rounded-3xl bg-white p-6
+        shadow-[0_6px_24px_rgba(0,0,0,0.06)]
+      "
+    >
+      <div className="relative flex h-14 w-14 items-center justify-center rounded-2xl bg-neutral-200">
+        <Icon
+          className="h-6 w-6 text-neutral-800"
+          strokeWidth={2}
+          aria-hidden="true"
+        />
+        <span className="absolute -right-1.5 -top-1.5 flex h-6 w-6 items-center justify-center rounded-full bg-primary-500 text-[10px] font-semibold text-white ring-2 ring-white">
+          •
+        </span>
+      </div>
+
+      <p className="text-[22px] font-semibold leading-tight text-neutral-900">
+        {stat.value}
+      </p>
+      <p className="text-base text-neutral-600">{stat.label}</p>
+    </div>
+  );
+}
 
 export function WhyChooseUs() {
+  // Duplicate the track so the loop point is invisible.
+  const track = [...whyChooseUsStats, ...whyChooseUsStats];
+
   return (
-    <section id="about" className="py-16 sm:py-20 lg:py-24 bg-neutral-200">
+    <section
+      className="overflow-hidden bg-neutral-100 py-14 md:py-24"
+      aria-label="Why choose us"
+    >
       <Container>
-        <SectionTitle
-          eyebrow="Why Choose Us"
-          heading="Built on craftsmanship, not shortcuts"
-          description="Six reasons homeowners trust us with the space they live in every day."
-          align="left"
-          className="mb-12"
-        />
-
-        <div className="grid lg:grid-cols-12 gap-10 items-start">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewportOnce}
-            variants={fadeLeft}
-            className="lg:col-span-5 relative aspect-[4/5] w-full overflow-hidden rounded-[2rem]"
-          >
-            <Image
-              src="/images/why-choose-us.jpg"
-              alt="Designer reviewing material samples with a client"
-              fill
-              sizes="(min-width: 1024px) 40vw, 100vw"
-              className="object-cover"
-            />
-          </motion.div>
-
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewportOnce}
-            variants={staggerContainer(0.1)}
-            className="lg:col-span-7 grid sm:grid-cols-2 gap-5"
-          >
-            {FEATURES.map((feature) => (
-              <FeatureCard key={feature.id} {...feature} />
-            ))}
-          </motion.div>
-        </div>
+        <h2 className="mb-8 text-[28px] font-bold leading-tight text-neutral-900 md:text-[40px]">
+          {whyChooseUsHeading}
+        </h2>
       </Container>
+
+      {/* Full-bleed marquee track — intentionally outside Container so
+          cards can run edge-to-edge like the Livspace reference. */}
+      <div className="group relative w-full">
+        <div
+          className="
+            flex w-max gap-4 px-6
+            animate-marquee
+            group-hover:[animation-play-state:paused]
+            motion-reduce:animate-none
+          "
+        >
+          {track.map((stat, index) => (
+            <StatCard key={`${stat.id}-${index}`} stat={stat} />
+          ))}
+        </div>
+      </div>
     </section>
   );
 }
+
+export default WhyChooseUs;
