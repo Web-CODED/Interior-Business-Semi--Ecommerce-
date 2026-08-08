@@ -68,18 +68,20 @@ export function InspirationGallery() {
         </div>
       </Container>
 
-      {/* Carousel bleeds to the edge on mobile */}
-      <div className="pl-6 md:pl-16 lg:pl-20">
+      {/* Mobile: one centered reel at a time, slight peek of neighbors.
+          Tablet/desktop: reverts to the multi-card bleed layout. */}
+      <div className="px-6 md:px-0 md:pl-16 lg:pl-20">
         <Swiper
           modules={[Navigation, Autoplay]}
           onSwiper={(swiper) => (swiperRef.current = swiper)}
-          slidesPerView={1.2}
-          spaceBetween={24}
+          slidesPerView={1.08}
+          centeredSlides
+          spaceBetween={16}
           loop
           autoplay={{ delay: 3500, disableOnInteraction: false, pauseOnMouseEnter: true }}
           breakpoints={{
-            768: { slidesPerView: 3 },
-            1024: { slidesPerView: 4 },
+            768: { slidesPerView: 3, centeredSlides: false, spaceBetween: 24 },
+            1024: { slidesPerView: 4, centeredSlides: false, spaceBetween: 24 },
           }}
         >
           {filteredItems.map((item) => (
