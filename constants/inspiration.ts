@@ -28,6 +28,7 @@ export const INSPIRATION_ITEMS: InspirationItem[] = [
     subtitle: "Kitchen",
     category: "kitchen",
     video:"/videos/inspiration/warm-minimalism.mp4",
+    poster: "/images/inspiration/3.jpg",
     instagramUrl: "https://www.instagram.com/reel/DbUuaptylXN/?igsh=MXdlb2xpam1jYzY5cQ==",
   },
   {
