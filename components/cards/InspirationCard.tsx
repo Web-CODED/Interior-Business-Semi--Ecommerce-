@@ -38,7 +38,7 @@ export function InspirationCard({ title, subtitle, video, poster, instagramUrl }
   return (
     <div
       ref={wrapperRef}
-      className="group relative h-[390px] w-[260px] sm:w-[290px] shrink-0 overflow-hidden rounded-card bg-neutral-900"
+      className="group relative h-[460px] md:h-[390px] w-[78vw] max-w-[320px] md:w-[290px] shrink-0 overflow-hidden rounded-card bg-neutral-900"
     >
       <video
         ref={videoRef}
