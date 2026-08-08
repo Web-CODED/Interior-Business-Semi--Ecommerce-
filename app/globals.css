@@ -156,3 +156,20 @@ body {
     scroll-behavior: auto !important;
   }
 }
+
+/* Add this to your existing globals.css (outside the @theme block) */
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    /* Track is duplicated in the component, so -50% is exactly one loop */
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+}
+
