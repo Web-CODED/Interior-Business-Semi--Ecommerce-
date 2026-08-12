@@ -1,136 +1,125 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 import Image from "next/image";
-import { ChevronDown } from "lucide-react";
-import { Container } from "@/components/ui/Container";
-import { HERO_SLIDES } from "@/constants/hero";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, EffectFade } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/effect-fade";
+
+import { heroSlides } from "@/constants/hero";
+import { playfair } from "@/lib/fonts";
+import { HeroFeatureList } from "./HeroFeatureList";
 
 /**
- * Hero (Part 2, restyled to match the Livspace reference). Each slide is
- * self-contained — its own image, headline, description, and single CTA —
- * nothing is shared across slides. Auto-plays every 5s, pauses on hover.
- * Edit copy per slide in constants/hero.ts.
+ * Hero
+ *
+ * Split layout: warm cream gradient over the left ~55% of a full-bleed
+ * photograph, serif headline + description + feature list sitting on
+ * the cream side. Per the latest direction, the CTA button (and slide
+ * dots) are pinned to the bottom-center of the hero on every slide,
+ * rather than living inline under the description.
  */
 export function Hero() {
-  const [activeSlide, setActiveSlide] = useState(0);
-  const [paused, setPaused] = useState(false);
-
-  useEffect(() => {
-    if (paused) return;
-    const id = setInterval(() => {
-      setActiveSlide((prev) => (prev + 1) % HERO_SLIDES.length);
-    }, 5000);
-    return () => clearInterval(id);
-  }, [paused]);
-
-  const slide = HERO_SLIDES[activeSlide];
+  const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section
-      id="home"
-      className="relative flex min-h-[700px] h-[88vh] sm:h-[80vh] max-sm:h-[72vh] w-full items-center overflow-hidden"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
-    >
-      {/* Background slider */}
-      <div className="absolute inset-0">
-        <AnimatePresence mode="sync">
-          {HERO_SLIDES.map(
-            (s, index) =>
-              index === activeSlide && (
-                <motion.div
-                  key={s.id}
-                  className="absolute inset-0"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.7 }}
-                >
-                  <motion.div
-                    className="relative h-full w-full"
-                    initial={{ scale: 1 }}
-                    animate={{ scale: 1.05 }}
-                    transition={{ duration: 9, ease: "linear" }}
-                  >
-                    <Image
-                      src={s.image}
-                      alt={s.alt}
-                      fill
-                      priority={index === 0}
-                      className="object-cover"
-                      sizes="100vw"
-                    />
-                  </motion.div>
-                </motion.div>
-              )
-          )}
-        </AnimatePresence>
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(to bottom, rgba(0,0,0,0.15), rgba(0,0,0,0.50))",
-          }}
-        />
-      </div>
-
-      {/* Content — swaps per slide, cross-fading with the image */}
-      <Container className="relative z-10">
-        <div className="max-w-[560px]">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={slide.id}
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -16 }}
-              transition={{ duration: 0.5, ease: "easeOut" }}
-            >
-              <h1 className="max-w-[520px] text-[2.125rem] sm:text-[2.875rem] lg:text-[3.625rem] font-bold leading-[1.15] text-white">
-                {slide.headline}
-              </h1>
-
-              <p className="mt-6 max-w-[480px] text-body sm:text-[1.1875rem] leading-[1.7] text-white/90">
-                {slide.description}
-              </p>
-
-              <div className="mt-8">
-                <a
-                  href={slide.ctaHref}
-                  className="inline-flex h-14 items-center justify-center rounded-button bg-primary-500 px-8 text-body font-semibold text-white transition-all duration-200 ease-out hover:-translate-y-0.5 hover:bg-primary-600 hover:shadow-[0_18px_42px_rgba(0,0,0,0.10)] active:scale-[0.98]"
-                >
-                  {slide.ctaLabel}
-                </a>
-              </div>
-            </motion.div>
-          </AnimatePresence>
-        </div>
-      </Container>
-
-      {/* Slider dots */}
-      <div className="absolute bottom-6 left-1/2 z-10 flex -translate-x-1/2 gap-2.5">
-        {HERO_SLIDES.map((s, index) => (
-          <button
-            key={s.id}
-            aria-label={`Go to slide ${index + 1}`}
-            onClick={() => setActiveSlide(index)}
-            className={`h-2.5 w-2.5 rounded-full transition-all duration-300 ${
-              index === activeSlide ? "bg-primary-500" : "bg-white/60"
-            }`}
-          />
-        ))}
-      </div>
-
-      {/* Scroll indicator */}
-      <motion.div
-        className="absolute bottom-6 right-8 hidden lg:flex text-white/70"
-        animate={{ y: [0, 8, 0] }}
-        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-        aria-hidden
+    <section className="relative h-[88vh] min-h-[700px] w-full overflow-hidden">
+      <Swiper
+        modules={[Autoplay, EffectFade]}
+        effect="fade"
+        fadeEffect={{ crossFade: true }}
+        autoplay={{ delay: 5000, disableOnInteraction: false }}
+        loop
+        speed={700}
+        onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
+        className="h-full w-full"
       >
-        <ChevronDown className="size-6" />
-      </motion.div>
+        {heroSlides.map((slide) => (
+          <SwiperSlide key={slide.id}>
+            <div className="relative h-full w-full">
+              {/* Background photograph — full bleed */}
+              <Image
+                src={slide.image.src}
+                alt={slide.image.alt}
+                fill
+                priority
+                sizes="100vw"
+                className="object-cover"
+              />
+
+              {/* Cream gradient overlay — solid on the left, fading into
+                  the photograph toward the right, so text stays readable
+                  without darkening the image. */}
+              <div
+                className="pointer-events-none absolute inset-0"
+                style={{
+                  background:
+                    "linear-gradient(90deg, var(--color-primary-50) 0%, var(--color-primary-50) 38%, rgba(255,245,242,0.55) 55%, rgba(255,245,242,0) 72%)",
+                }}
+                aria-hidden="true"
+              />
+
+              {/* Content column */}
+              <div className="relative z-10 mx-auto flex h-full max-w-[1280px] items-center px-5 md:px-10">
+                <div className="max-w-[560px] pb-28 md:pb-32">
+                  <p className="flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.08em] text-primary-700">
+                    {slide.eyebrow}
+                    <span className="h-px w-8 bg-primary-700" aria-hidden="true" />
+                  </p>
+
+                  <h1
+                    className={`${playfair.className} mt-3 text-[34px] font-bold leading-[1.1] text-primary-800 md:text-[58px]`}
+                  >
+                    {slide.headlineLines.map((line) => (
+                      <span key={line} className="block">
+                        {line}
+                      </span>
+                    ))}
+                  </h1>
+
+                  <p className="mt-5 max-w-[480px] text-base leading-[1.7] text-neutral-700 md:text-lg">
+                    {slide.description}
+                  </p>
+
+                  <HeroFeatureList features={slide.features} />
+                </div>
+              </div>
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+
+      {/* CTA + dots — pinned bottom-center, persistent across every slide */}
+      <div className="absolute bottom-8 left-1/2 z-20 flex -translate-x-1/2 flex-col items-center gap-4 md:bottom-12">
+        <div className="flex gap-2" role="tablist" aria-label="Hero slides">
+          {heroSlides.map((slide, index) => (
+            <span
+              key={slide.id}
+              className={`h-2.5 w-2.5 rounded-full transition-colors duration-300 ${
+                index === activeIndex ? "bg-primary-700" : "bg-primary-700/30"
+              }`}
+              aria-hidden="true"
+            />
+          ))}
+        </div>
+
+        <Link
+          href={heroSlides[activeIndex].ctaHref}
+          className="
+            inline-flex h-14 items-center gap-2 rounded-2xl bg-primary-700
+            px-8 text-base font-semibold text-white shadow-[0_12px_36px_rgba(0,0,0,0.14)]
+            transition-all duration-200 hover:-translate-y-0.5 hover:bg-primary-800 hover:shadow-[0_18px_42px_rgba(0,0,0,0.16)]
+          "
+        >
+          {heroSlides[activeIndex].ctaLabel}
+          <ArrowRight className="h-5 w-5" strokeWidth={2} aria-hidden="true" />
+        </Link>
+      </div>
     </section>
   );
 }
+
+export default Hero;
