@@ -32,7 +32,7 @@ export interface SocialLink {
 
 export const SOCIAL_LINKS: SocialLink[] = [
   { label: "Instagram", href: "https://www.instagram.com/ganpati_interiors?igsh=MWNhcHY3eGJsbXpxcg==&igsi=MWNhcHY3eGJsbXpxcg==", icon: Instagram },
-  { label: "Facebook", href: "https://facebook.com/ganpatiinteriors", icon: Facebook },
+  { label: "Facebook", href: "https://www.facebook.com/share/1JPHCCdiYo/", icon: Facebook },
   { label: "YouTube", href: "https://youtube.com", icon: Youtube },
 ];
 
