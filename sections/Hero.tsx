@@ -20,6 +20,11 @@ import { HeroFeatureList } from "./HeroFeatureList";
  * photograph, serif headline + description + feature list on the cream
  * side, CTA + dots pinned bottom-center on every slide.
  *
+ * The cream overlay is intentionally translucent (not fully solid) —
+ * capped around 58% opacity at its strongest point — so the photograph
+ * stays visible underneath even on the left, rather than being fully
+ * masked by a flat color block.
+ *
  * Mobile height is deliberately shorter than desktop (rather than a
  * tall 88vh block) — a shorter container needs a gentler object-cover
  * crop, which is what fixes the "image looks too zoomed in" issue.
@@ -55,13 +60,14 @@ export function Hero() {
                 style={{ objectPosition: slide.image.focalPoint }}
               />
 
-              {/* Cream gradient overlay — solid on the left, fading into
-                  the photograph toward the right. */}
+              {/* Cream gradient overlay — translucent (max ~58% opacity) on
+                  the left, fading to fully transparent toward the right,
+                  so the photograph stays visible everywhere. */}
               <div
                 className="pointer-events-none absolute inset-0"
                 style={{
                   background:
-                    "linear-gradient(90deg, var(--color-primary-50) 0%, var(--color-primary-50) 42%, rgba(255,245,242,0.6) 60%, rgba(255,245,242,0) 78%)",
+                    "linear-gradient(90deg, rgba(255,245,242,0.58) 0%, rgba(255,245,242,0.58) 42%, rgba(255,245,242,0.35) 60%, rgba(255,245,242,0) 78%)",
                 }}
                 aria-hidden="true"
               />
