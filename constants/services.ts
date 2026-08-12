@@ -17,7 +17,7 @@ export const services: ServiceItem[] = [
     title: "Modular Interiors",
     description: "Functional kitchen, wardrobe and storage",
     image: {
-      src: "/images/services/modular-interiors.jpg",
+      src: "/images/services/ModularKitchen.jpeg",
       alt: "Modern living room with modular furniture",
     },
     href: "/services/modular-interiors",
@@ -27,7 +27,7 @@ export const services: ServiceItem[] = [
     title: "Full Home Interiors",
     description: "Turnkey interior solutions for your home",
     image: {
-      src: "/images/services/full-home-interiors.jpg",
+      src: "/images/services/FullhomeInterior.jpeg",
       alt: "Marble kitchen island with pendant lighting",
     },
     href: "/services/full-home-interiors",
@@ -37,7 +37,7 @@ export const services: ServiceItem[] = [
     title: "Luxury Interiors",
     description: "Tailored interiors that redefine elegance",
     image: {
-      src: "/images/services/luxury-interiors.jpg",
+      src: "/images/services/LuxuryInterior.jpeg",
       alt: "Luxury kitchen with dark island and gold accents",
     },
     href: "/services/luxury-interiors",
@@ -47,7 +47,7 @@ export const services: ServiceItem[] = [
     title: "Value Interiors",
     description: "Quality interiors at affordable prices",
     image: {
-      src: "/images/services/value-interiors.jpg",
+      src: "/images/services/WarmMinimal.jpeg",
       alt: "Warm minimal kitchen with wood cabinetry",
     },
     href: "/services/value-interiors",
@@ -57,7 +57,7 @@ export const services: ServiceItem[] = [
     title: "Renovations",
     description: "Expert solutions to upgrade your home",
     image: {
-      src: "/images/services/renovations.jpg",
+      src: "/images/services/Renovation.jpeg",
       alt: "Kitchen renovation in progress with exposed brick wall",
     },
     href: "/services/renovations",
