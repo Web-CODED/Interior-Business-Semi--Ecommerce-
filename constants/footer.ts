@@ -52,7 +52,7 @@ export const CONTACT_ROWS: ContactRow[] = [
     value: "Pradhan Nagar, Siliguri 734003",
     href: "https://maps.google.com/?q=Pradhan+Nagar+Siliguri+734003",
   },
-  { icon: Clock, ing Hours", value: "Mon – Sat, 10am – 7pm" },
+  { icon: Clock, label: "Working Hours", value: "Mon – Sat, 10am – 7pm" },
 ];
 
 export const LEGAL_LINKS: FooterLink[] = [
