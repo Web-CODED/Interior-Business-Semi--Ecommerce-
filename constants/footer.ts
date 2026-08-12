@@ -45,14 +45,14 @@ export interface ContactRow {
 
 export const CONTACT_ROWS: ContactRow[] = [
   { icon: Phone, label: "Phone", value: "+91 76791 47001", href: "tel:+917679147001" },
-  { icon: Mail, label: "Email", value: "hello@ganpatiinteriors.co.in", href: "mailto:hello@ganpatiinteriors.co.in" },
+  { icon: Mail, label: "Email", value: "ganpatiinteriorsupport@gmail.com", href: "mailto:ganpatiinteriorsupport@gmail.com" },
   {
     icon: MapPin,
     label: "Address",
     value: "Pradhan Nagar, Siliguri 734003",
     href: "https://maps.google.com/?q=Pradhan+Nagar+Siliguri+734003",
   },
-  { icon: Clock, label: "Working Hours", value: "Mon – Sat, 10am – 7pm" },
+  { icon: Clock, ing Hours", value: "Mon – Sat, 10am – 7pm" },
 ];
 
 export const LEGAL_LINKS: FooterLink[] = [
