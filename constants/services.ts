@@ -1,38 +1,65 @@
-export interface Service {
+export interface ServiceItem {
   id: string;
   title: string;
   description: string;
-  image: string;
+  image: {
+    src: string;
+    alt: string;
+  };
   href: string;
 }
 
-export const SERVICES: Service[] = [
+// Single source of truth for the Services grid — mirrors the Livspace
+// "One-stop shop for all things interiors" card set.
+export const services: ServiceItem[] = [
   {
-    id: "kitchen",
-    title: "Kitchen",
-    description: "Functional layouts with a premium finish.",
-    image: "/images/services/kitchen.jpg",
-    href: "#kitchen",
+    id: "modular-interiors",
+    title: "Modular Interiors",
+    description: "Functional kitchen, wardrobe and storage",
+    image: {
+      src: "/images/services/modular-interiors.jpg",
+      alt: "Modern living room with modular furniture",
+    },
+    href: "/services/modular-interiors",
   },
   {
-    id: "living-room",
-    title: "Living Room",
-    description: "Warm, layered spaces built for gathering.",
-    image: "/images/services/living-room.jpg",
-    href: "#living-room",
+    id: "full-home-interiors",
+    title: "Full Home Interiors",
+    description: "Turnkey interior solutions for your home",
+    image: {
+      src: "/images/services/full-home-interiors.jpg",
+      alt: "Marble kitchen island with pendant lighting",
+    },
+    href: "/services/full-home-interiors",
   },
   {
-    id: "bedroom",
-    title: "Bedroom",
-    description: "Calm, restorative interiors down to the last detail.",
-    image: "/images/services/bedroom.jpg",
-    href: "#bedroom",
+    id: "luxury-interiors",
+    title: "Luxury Interiors",
+    description: "Tailored interiors that redefine elegance",
+    image: {
+      src: "/images/services/luxury-interiors.jpg",
+      alt: "Luxury kitchen with dark island and gold accents",
+    },
+    href: "/services/luxury-interiors",
   },
   {
-    id: "office",
-    title: "Office",
-    description: "Considered workspaces that still feel like home.",
-    image: "/images/services/office.jpg",
-    href: "#office",
+    id: "value-interiors",
+    title: "Value Interiors",
+    description: "Quality interiors at affordable prices",
+    image: {
+      src: "/images/services/value-interiors.jpg",
+      alt: "Warm minimal kitchen with wood cabinetry",
+    },
+    href: "/services/value-interiors",
+  },
+  {
+    id: "renovations",
+    title: "Renovations",
+    description: "Expert solutions to upgrade your home",
+    image: {
+      src: "/images/services/renovations.jpg",
+      alt: "Kitchen renovation in progress with exposed brick wall",
+    },
+    href: "/services/renovations",
   },
 ];
