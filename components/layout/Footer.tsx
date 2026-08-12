@@ -5,6 +5,7 @@ import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
+import { MapCard } from "@/components/layout/MapCard";
 import {
   QUICK_LINKS,
   SERVICE_LINKS,
@@ -16,6 +17,7 @@ import {
 /**
  * Site footer (Part 4). Dark plum background, 4 columns desktop, accordion
  * on mobile for the link columns. Newsletter has its own local success state.
+ * MapCard sits between the link grid and the bottom legal row.
  */
 export function Footer() {
   const [email, setEmail] = useState("");
@@ -157,6 +159,12 @@ export function Footer() {
               <p className="mt-2 text-small text-error-500">Enter a valid email address.</p>
             )}
           </div>
+        </div>
+
+        {/* Map */}
+        <div className="mt-14">
+          <h3 className="mb-5 text-lg font-semibold">Find Us</h3>
+          <MapCard />
         </div>
 
         <div className="mt-14 h-px w-full bg-white/15" />
