@@ -1,15 +1,11 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
+import { inter, playfair } from "@/lib/fonts";
 import { MobileMenuProvider } from "@/components/layout/MobileMenuContext";
 import { MobileDrawer } from "@/components/layout/MobileDrawer";
 import { BottomNav } from "@/components/layout/BottomNav";
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
+import { FloatingWhatsApp } from "@/components/ui/FloatingWhatsApp";
+import { FakeVisitorNotification } from "@/components/ui/FakeVisitorNotification";
 
 export const metadata: Metadata = {
   title: "Ganpati Interiors — Complete Interior & Décor Solutions",
@@ -19,12 +15,14 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
       <body className="pb-[68px] lg:pb-0">
         <MobileMenuProvider>
           {children}
           <MobileDrawer />
           <BottomNav />
+          <FloatingWhatsApp />
+          <FakeVisitorNotification />
         </MobileMenuProvider>
       </body>
     </html>
