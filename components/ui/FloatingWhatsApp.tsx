@@ -1,24 +1,19 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { X } from "lucide-react";
-
 /**
  * FloatingWhatsApp
  *
- * Sticky WhatsApp button, always visible (Part 2 spec: circle, bottom-right,
- * heavy shadow, hover scale 1.08). Below it sits a persistent chat bubble
- * ("notification message popup") that stays on screen rather than only
- * appearing on hover — dismissible, and the dismissal is remembered for
- * the browser session so it doesn't nag on every page.
+ * Sticky WhatsApp button (Part 2 spec: circle, bottom-right, heavy shadow,
+ * hover scale 1.08) with a small red notification badge — the kind of
+ * unread-count badge you see on app icons on a phone's home screen —
+ * instead of a persistent chat bubble popup.
  *
- * Positioned to clear the mobile BottomNav (extra bottom offset on small
- * screens); desktop uses the standard 32px edge spacing from Part 2.
+ * Positioned to clear the mobile BottomNav; desktop uses the standard
+ * 32px edge spacing from Part 2.
  */
 
-const WHATSAPP_NUMBER = "911234567890"; // TODO: replace with real number
+const WHATSAPP_NUMBER = "917679147001"; // TODO: replace with real number
 const WHATSAPP_MESSAGE = "Hi! I'd like to know more about your interior design services.";
-const DISMISS_KEY = "ganpati-whatsapp-bubble-dismissed";
 
 function WhatsAppIcon({ className }: { className?: string }) {
   return (
@@ -29,60 +24,32 @@ function WhatsAppIcon({ className }: { className?: string }) {
 }
 
 export function FloatingWhatsApp() {
-  const [bubbleVisible, setBubbleVisible] = useState(false);
-
-  useEffect(() => {
-    const alreadyDismissed = sessionStorage.getItem(DISMISS_KEY);
-    if (alreadyDismissed) return;
-
-    // Small delay so it doesn't compete with the hero for attention on load.
-    const timer = setTimeout(() => setBubbleVisible(true), 2500);
-    return () => clearTimeout(timer);
-  }, []);
-
-  function dismissBubble() {
-    setBubbleVisible(false);
-    sessionStorage.setItem(DISMISS_KEY, "1");
-  }
-
   const href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
 
   return (
-    <div className="fixed bottom-[92px] right-5 z-[600] flex flex-col items-end gap-3 md:bottom-8 md:right-8">
-      {bubbleVisible && (
-        <div
-          className="
-            relative max-w-[220px] rounded-2xl bg-white p-3.5 pr-8
-            text-sm leading-snug text-neutral-800 shadow-[0_18px_48px_rgba(0,0,0,0.12)]
-            animate-in fade-in slide-in-from-bottom-2 duration-300
-          "
-          role="status"
-        >
-          <button
-            onClick={dismissBubble}
-            aria-label="Dismiss message"
-            className="absolute right-2 top-2 flex size-5 items-center justify-center rounded-full text-neutral-400 hover:text-neutral-700"
-          >
-            <X className="size-3.5" />
-          </button>
-          Hi there! 👋 Have a question about your interior project? Chat with us.
-        </div>
-      )}
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Chat with us on WhatsApp — 1 new message"
+      className="
+        fixed bottom-[92px] right-5 z-[600] flex size-[60px] items-center
+        justify-center rounded-full bg-[#25D366] text-white
+        shadow-[0_18px_48px_rgba(0,0,0,0.18)]
+        transition-transform duration-200 hover:scale-[1.08]
+        md:bottom-8 md:right-8
+      "
+    >
+      <WhatsAppIcon className="size-8" />
 
-      <a
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Chat with us on WhatsApp"
-        className="
-          group flex size-[60px] items-center justify-center rounded-full
-          bg-[#25D366] text-white shadow-[0_18px_48px_rgba(0,0,0,0.18)]
-          transition-transform duration-200 hover:scale-[1.08]
-        "
+      {/* Notification badge — mobile app-icon style unread indicator */}
+      <span
+        className="absolute -right-1 -top-1 flex size-6 items-center justify-center rounded-full bg-error-500 text-[11px] font-bold text-white ring-2 ring-white"
+        aria-hidden="true"
       >
-        <WhatsAppIcon className="size-8" />
-      </a>
-    </div>
+        1
+      </span>
+    </a>
   );
 }
 
