@@ -10,9 +10,18 @@ import { staggerContainer, viewportOnce } from "@/lib/motion";
 /**
  * Homepage "Featured" strip — a curated subset of the full Catalogues page.
  * Pulls any product flagged `featured: true` in constants/products.ts.
+ *
+ * Grid is 2 columns on mobile, 3 on desktop. If the last card would
+ * otherwise land alone with empty space beside it, it stretches to fill
+ * that gap — computed from the actual product count rather than
+ * hardcoded, since `featured` products can be added/removed over time.
  */
 export function Featured() {
   const featuredProducts = PRODUCTS.filter((p) => p.featured);
+  const total = featuredProducts.length;
+
+  const remainderMobile = total % 2; // 2-col grid
+  const remainderDesktop = total % 3; // 3-col grid
 
   return (
     <section id="featured" className="py-16 sm:py-20 lg:py-24 bg-neutral-200">
@@ -38,11 +47,29 @@ export function Featured() {
           variants={staggerContainer(0.1)}
           className="grid grid-cols-2 lg:grid-cols-3 gap-6"
         >
-          {featuredProducts.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
+          {featuredProducts.map((product, index) => {
+            const isLast = index === total - 1;
+
+            // Only span if that card would otherwise leave a gap beside it.
+            const mobileSpan = isLast && remainderMobile === 1 ? "col-span-2" : "";
+            const desktopSpan = isLast
+              ? remainderDesktop === 1
+                ? "lg:col-span-3"
+                : remainderDesktop === 2
+                ? "lg:col-span-2"
+                : ""
+              : "";
+
+            return (
+              <div key={product.id} className={`${mobileSpan} ${desktopSpan}`.trim()}>
+                <ProductCard product={product} />
+              </div>
+            );
+          })}
         </motion.div>
       </Container>
     </section>
   );
 }
+
+export default Featured;
