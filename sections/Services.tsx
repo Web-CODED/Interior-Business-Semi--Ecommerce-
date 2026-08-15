@@ -3,15 +3,18 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
+import { cn } from "@/lib/utils";
 import { services } from "@/constants/services";
 
 /**
  * Services
  *
- * Matches the Livspace "One-stop shop for all things interiors" pattern
- * exactly: heading + description, then a grid of cards with the image
- * on top (not overlaid with text) and title/description sitting below
- * it in the card body. Two columns on mobile, three on desktop.
+ * Matches the Livspace "One-stop shop for all things interiors" pattern:
+ * heading + description, then a grid of cards with the image on top and
+ * title/description in the card body. Two columns on mobile, three on
+ * desktop. The last card (Renovations) spans both remaining columns
+ * instead of leaving an empty cell beside it — a wider aspect ratio
+ * keeps the stretched image from looking oversized.
  */
 export function Services() {
   return (
@@ -27,35 +30,43 @@ export function Services() {
         </p>
 
         <div className="mt-8 grid grid-cols-2 gap-4 md:mt-12 md:grid-cols-3 md:gap-6">
-          {services.map((service) => (
-            <Link
-              key={service.id}
-              href={service.href}
-              className="
-                group flex flex-col overflow-hidden rounded-3xl bg-white
-                shadow-[0_6px_24px_rgba(0,0,0,0.06)]
-                transition-shadow duration-300 hover:shadow-[0_12px_36px_rgba(0,0,0,0.08)]
-              "
-            >
-              <div className="relative aspect-[4/3] w-full overflow-hidden">
-                <Image
-                  src={service.image.src}
-                  alt={service.image.alt}
-                  fill
-                  sizes="(min-width: 768px) 33vw, 50vw"
-                  className="object-cover transition-transform duration-300 group-hover:scale-105"
-                />
-              </div>
-              <div className="p-4 md:p-5">
-                <h3 className="text-base font-bold leading-snug text-neutral-900 md:text-lg">
-                  {service.title}
-                </h3>
-                <p className="mt-1 text-sm leading-snug text-neutral-600">
-                  {service.description}
-                </p>
-              </div>
-            </Link>
-          ))}
+          {services.map((service, index) => {
+            const isLast = index === services.length - 1;
+
+            return (
+              <Link
+                key={service.id}
+                href={service.href}
+                className={cn(
+                  "group flex flex-col overflow-hidden rounded-3xl bg-white shadow-[0_6px_24px_rgba(0,0,0,0.06)] transition-shadow duration-300 hover:shadow-[0_12px_36px_rgba(0,0,0,0.08)]",
+                  isLast && "col-span-2"
+                )}
+              >
+                <div
+                  className={cn(
+                    "relative w-full overflow-hidden",
+                    isLast ? "aspect-[21/9]" : "aspect-[4/3]"
+                  )}
+                >
+                  <Image
+                    src={service.image.src}
+                    alt={service.image.alt}
+                    fill
+                    sizes={isLast ? "100vw" : "(min-width: 768px) 33vw, 50vw"}
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                </div>
+                <div className="p-4 md:p-5">
+                  <h3 className="text-base font-bold leading-snug text-neutral-900 md:text-lg">
+                    {service.title}
+                  </h3>
+                  <p className="mt-1 text-sm leading-snug text-neutral-600">
+                    {service.description}
+                  </p>
+                </div>
+              </Link>
+            );
+          })}
         </div>
 
         <div className="mt-10 flex justify-center md:mt-14">
