@@ -2,6 +2,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/sections/Hero";
 import { Services } from "@/sections/Services";
+import { EstimateTeaser } from "@/sections/EstimateTeaser";
 import { Featured } from "@/sections/Featured";
 import { InspirationGallery } from "@/sections/InspirationGallery";
 import { WhyChooseUs } from "@/sections/WhyChooseUs";
@@ -16,6 +17,7 @@ export default function HomePage() {
       <main>
         <Hero />
         <Services />
+        <EstimateTeaser />
         <Featured />
         <InspirationGallery />
         <WhyChooseUs />
