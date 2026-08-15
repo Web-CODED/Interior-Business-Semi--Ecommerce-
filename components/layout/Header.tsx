@@ -38,19 +38,24 @@ export function Header() {
       )}
     >
       <Container className="flex h-full items-center justify-between">
-        <a href="/" className="flex items-center gap-2.5" aria-label="Ganpati Interiors — Home">
-          <Image
-            src="/images/logo.png"
-            alt=""
-            width={44}
-            height={44}
-            priority
-            className="h-[32px] lg:h-[40px] w-auto object-contain shrink-0"
-          />
-          <span className="text-lg lg:text-xl font-bold tracking-tight whitespace-nowrap text-neutral-900">
-            Ganpati Interiors
-          </span>
-        </a>
+        <a href="/" className="flex items-center gap-2 lg:gap-3" aria-label="Ganpati Interiors — Home">
+  <Image
+    src="/images/logo-icon.png"
+    alt=""
+    width={953}
+    height={909}
+    priority
+    className="h-10 lg:h-14 w-auto object-contain shrink-0"
+  />
+  <Image
+    src="/images/logo-wordmark.png"
+    alt="Ganpati Interiors"
+    width={1238}
+    height={434}
+    priority
+    className="h-8 lg:h-11 w-auto object-contain shrink-0"
+  />
+</a>
 
         <nav className="hidden lg:flex items-center gap-9" aria-label="Primary">
           {NAV_LINKS.map((link) => (
