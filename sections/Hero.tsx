@@ -20,22 +20,17 @@ import { HeroFeatureList } from "./HeroFeatureList";
  * photograph, serif headline + description + feature list on the cream
  * side, CTA + dots pinned bottom-center on every slide.
  *
- * The cream overlay is intentionally translucent (not fully solid) —
- * capped around 58% opacity at its strongest point — so the photograph
- * stays visible underneath even on the left, rather than being fully
- * masked by a flat color block.
- *
- * Mobile height is deliberately shorter than desktop (rather than a
- * tall 88vh block) — a shorter container needs a gentler object-cover
- * crop, which is what fixes the "image looks too zoomed in" issue.
- * Content gets top padding equal to the header height so nothing sits
- * under the now-solid, fixed header.
+ * Mobile height is kept short (520px) rather than tall — a taller
+ * portrait container forces object-cover to scale the (landscape)
+ * photo up more to cover the height, which crops MORE off the sides,
+ * not less. Shorter container = smaller required scale = less crop =
+ * more of the room visible ("zoomed out").
  */
 export function Hero() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section className="relative h-[640px] w-full overflow-hidden md:h-[88vh] md:min-h-[700px]">
+    <section className="relative mb-6 h-[520px] w-full overflow-hidden md:mb-10 md:h-[88vh] md:min-h-[700px]">
       <Swiper
         modules={[Autoplay, EffectFade]}
         effect="fade"
@@ -61,8 +56,7 @@ export function Hero() {
               />
 
               {/* Cream gradient overlay — translucent (max ~58% opacity) on
-                  the left, fading to fully transparent toward the right,
-                  so the photograph stays visible everywhere. */}
+                  the left, fading to fully transparent toward the right. */}
               <div
                 className="pointer-events-none absolute inset-0"
                 style={{
@@ -74,14 +68,14 @@ export function Hero() {
 
               {/* Content column — pt clears the fixed header (70px mobile / 82px desktop) */}
               <div className="relative z-10 mx-auto flex h-full max-w-[1280px] items-start px-5 pt-[86px] md:items-center md:px-10 md:pt-0">
-                <div className="max-h-full max-w-[560px] overflow-y-auto pb-20 md:overflow-visible md:pb-32">
-                  <p className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.08em] text-primary-700 md:text-sm">
+                <div className="max-h-full max-w-[560px] overflow-y-auto pb-16 md:overflow-visible md:pb-32">
+                  <p className="flex items-center gap-2.5 text-[11px] font-semibold uppercase tracking-[0.08em] text-primary-700 md:gap-3 md:text-sm">
                     {slide.eyebrow}
-                    <span className="h-px w-8 bg-primary-700" aria-hidden="true" />
+                    <span className="h-px w-6 bg-primary-700 md:w-8" aria-hidden="true" />
                   </p>
 
                   <h1
-                    className={`${playfair.className} mt-2 text-[28px] font-bold leading-[1.1] text-primary-800 md:mt-3 md:text-[58px]`}
+                    className={`${playfair.className} mt-2 text-[24px] font-bold leading-[1.1] text-primary-800 md:mt-3 md:text-[58px]`}
                   >
                     {slide.headlineLines.map((line) => (
                       <span key={line} className="block">
@@ -90,7 +84,7 @@ export function Hero() {
                     ))}
                   </h1>
 
-                  <p className="mt-3 max-w-[480px] text-sm leading-[1.6] text-neutral-700 md:mt-5 md:text-lg md:leading-[1.7]">
+                  <p className="mt-2.5 max-w-[480px] text-[13px] leading-[1.55] text-neutral-700 md:mt-5 md:text-lg md:leading-[1.7]">
                     {slide.description}
                   </p>
 
@@ -119,8 +113,8 @@ export function Hero() {
         <Link
           href={heroSlides[activeIndex].ctaHref}
           className="
-            inline-flex h-11 items-center gap-2 rounded-2xl bg-primary-700
-            px-6 text-sm font-semibold text-white shadow-[0_12px_36px_rgba(0,0,0,0.14)]
+            inline-flex h-10 items-center gap-2 rounded-2xl bg-primary-700
+            px-5 text-sm font-semibold text-white shadow-[0_12px_36px_rgba(0,0,0,0.14)]
             transition-all duration-200 hover:-translate-y-0.5 hover:bg-primary-800 hover:shadow-[0_18px_42px_rgba(0,0,0,0.16)]
             md:h-14 md:px-8 md:text-base
           "
