@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
@@ -12,14 +12,29 @@ export interface ProductGalleryProps {
 
 /**
  * Large hero image + thumbnail strip for a single product's photo set.
- * Click any thumbnail to swap the main image (fade transition).
+ * Auto-cycles every 3.5s; click any thumbnail to jump directly (pauses autoplay).
+ * Uses object-contain so no part of any image is ever cropped.
  */
 export function ProductGallery({ images, title }: ProductGalleryProps) {
   const [active, setActive] = useState(0);
+  const [paused, setPaused] = useState(false);
+
+  useEffect(() => {
+    if (paused || images.length <= 1) return;
+    const timer = setInterval(() => {
+      setActive((prev) => (prev + 1) % images.length);
+    }, 3500);
+    return () => clearInterval(timer);
+  }, [paused, images.length]);
 
   return (
     <div>
-      <div className="relative aspect-[16/10] w-full overflow-hidden rounded-feature bg-neutral-200">
+      <div
+        className="relative aspect-[16/10] w-full overflow-hidden rounded-feature bg-neutral-200"
+        onMouseEnter={() => setPaused(true)}
+        onMouseLeave={() => setPaused(false)}
+        onTouchStart={() => setPaused(true)}
+      >
         <AnimatePresence mode="wait">
           <motion.div
             key={active}
@@ -35,7 +50,7 @@ export function ProductGallery({ images, title }: ProductGalleryProps) {
               fill
               priority={active === 0}
               sizes="(min-width: 1024px) 1200px, 100vw"
-              className="object-cover"
+              className="object-contain"
             />
           </motion.div>
         </AnimatePresence>
@@ -45,7 +60,10 @@ export function ProductGallery({ images, title }: ProductGalleryProps) {
         {images.map((image, index) => (
           <button
             key={image}
-            onClick={() => setActive(index)}
+            onClick={() => {
+              setActive(index);
+              setPaused(true);
+            }}
             aria-label={`View photo ${index + 1}`}
             aria-current={active === index}
             className={cn(
