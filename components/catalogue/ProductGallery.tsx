@@ -13,7 +13,9 @@ export interface ProductGalleryProps {
 /**
  * Large hero image + thumbnail strip for a single product's photo set.
  * Auto-cycles every 3.5s; click any thumbnail to jump directly (pauses autoplay).
- * Uses object-contain so no part of any image is ever cropped.
+ * A blurred backdrop of the same image fills the container so mismatched
+ * aspect ratios never show flat empty space, while the foreground image
+ * itself is never cropped.
  */
 export function ProductGallery({ images, title }: ProductGalleryProps) {
   const [active, setActive] = useState(0);
@@ -44,13 +46,23 @@ export function ProductGallery({ images, title }: ProductGalleryProps) {
             transition={{ duration: 0.3, ease: "easeOut" }}
             className="absolute inset-0"
           >
+            {/* Blurred backdrop fills the container edge-to-edge */}
+            <Image
+              src={images[active]}
+              alt=""
+              fill
+              aria-hidden="true"
+              sizes="(min-width: 1024px) 1200px, 100vw"
+              className="scale-110 object-cover blur-2xl opacity-60"
+            />
+            {/* Sharp foreground image, never cropped */}
             <Image
               src={images[active]}
               alt={`${title} — photo ${active + 1}`}
               fill
               priority={active === 0}
               sizes="(min-width: 1024px) 1200px, 100vw"
-              className="object-contain"
+              className="relative object-contain"
             />
           </motion.div>
         </AnimatePresence>
