@@ -14,12 +14,12 @@ export const estimateRollingWords: string[] = ["Full Interior", "Wardrobe", "Kit
 
 export const estimateCards: EstimateCardItem[] = [
   {
-    id: "full-interior",
-    icon: Home,
-    title: "Full Interior",
-    description: "Calculate the approximate cost of doing up your entire home.",
-    href: "/estimate?type=full-interior",
-  },
+  id: "full-interior",
+  icon: Home,
+  title: "Full Interior",
+  description: "Calculate the approximate cost of doing up your entire home.",
+  href: "/estimate/bhk-type?type=full-interior", // was "/estimate?type=full-interior"
+},
   {
     id: "wardrobe",
     icon: Shirt,
