@@ -4,35 +4,20 @@ import { motion } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { PROCESS_STEPS } from "@/constants/process";
-import { staggerContainer, fadeUp, viewportOnce } from "@/lib/motion";
+import { viewportOnce } from "@/lib/motion";
 
 /**
- * Company Process timeline (Part 3B — Section 7). Since these steps are a
- * real ordered sequence, the reveal animation reinforces that order:
- * the connector line draws left-to-right, each icon circle pops in one
- * at a time, then its number/title/description fade up right after —
- * so it reads as "step 1 lands, then step 2, then step 3..." rather
- * than everything appearing together.
+ * Company Process timeline (Part 3B — Section 7).
+ *
+ * Every animated element here triggers itself independently via its own
+ * `whileInView` — nothing relies on inherited variant state from a
+ * parent. This is deliberately more verbose than using a shared
+ * staggerContainer/fadeUp pair, but it's far less likely to silently
+ * fail to animate: each element manages its own viewport trigger and
+ * its own delay (computed from its index), so there's no dependency
+ * chain that can break if an intermediate wrapper doesn't propagate
+ * variants correctly.
  */
-
-const iconPop = {
-  hidden: { scale: 0.4, opacity: 0 },
-  visible: {
-    scale: 1,
-    opacity: 1,
-    transition: { duration: 0.4, ease: "easeOut" },
-  },
-};
-
-const textFadeUp = {
-  hidden: { opacity: 0, y: 16 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.4, ease: "easeOut", delay: 0.15 },
-  },
-};
-
 export function Process() {
   return (
     <section className="py-16 sm:py-20 lg:py-24">
@@ -46,7 +31,7 @@ export function Process() {
         />
 
         <div className="relative">
-          {/* Connector line — desktop only, draws left-to-right as steps reveal */}
+          {/* Connector line — desktop only, draws left-to-right */}
           <motion.div
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
@@ -59,27 +44,33 @@ export function Process() {
             className="absolute top-9 left-[10%] right-[10%] hidden h-0.5 bg-neutral-400 md:block"
           />
 
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewportOnce}
-            variants={staggerContainer(0.15)}
-            className="relative grid gap-10 md:grid-cols-5 md:gap-6"
-          >
-            {PROCESS_STEPS.map((step) => (
-              <motion.div
-                key={step.id}
-                variants={fadeUp}
-                className="relative flex flex-col items-center text-center"
-              >
+          <div className="relative grid gap-10 md:grid-cols-5 md:gap-6">
+            {PROCESS_STEPS.map((step, index) => (
+              <div key={step.id} className="relative flex flex-col items-center text-center">
                 <motion.div
-                  variants={iconPop}
+                  initial={{ scale: 0.4, opacity: 0 }}
+                  whileInView={{ scale: 1, opacity: 1 }}
+                  viewport={viewportOnce}
+                  transition={{
+                    duration: 0.4,
+                    ease: "easeOut",
+                    delay: index * 0.15,
+                  }}
                   className="relative z-10 flex size-[72px] items-center justify-center rounded-full bg-primary-500 text-white shadow-[0_12px_36px_rgba(0,0,0,0.08)]"
                 >
                   <step.icon className="size-7" strokeWidth={2} />
                 </motion.div>
 
-                <motion.div variants={textFadeUp}>
+                <motion.div
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={viewportOnce}
+                  transition={{
+                    duration: 0.4,
+                    ease: "easeOut",
+                    delay: index * 0.15 + 0.15,
+                  }}
+                >
                   <span className="mt-4 block text-small font-semibold text-primary-600">
                     {step.number}
                   </span>
@@ -88,9 +79,9 @@ export function Process() {
                     {step.description}
                   </p>
                 </motion.div>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </Container>
     </section>
