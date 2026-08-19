@@ -51,12 +51,14 @@ export const BHK_TYPE_OPTIONS: BhkTypeOption[] = [
   },
 ];
 
-// Full 4-step flow reference. Only step 0 (bhk-type) is built right now —
-// the rest are here so the progress bar labels are correct and so the
-// next steps have an obvious place to slot in later.
-export const ESTIMATE_STEPS = [
-  { id: "bhk-type", label: "BHK Type" },
-  { id: "property-details", label: "Property Details" },
-  { id: "budget", label: "Budget" },
-  { id: "contact", label: "Contact" },
-] as const;
+export interface KitchenLayoutOption {
+  id: string;
+  label: string;
+}
+
+export const KITCHEN_LAYOUT_OPTIONS: KitchenLayoutOption[] = [
+  { id: "l-shaped", label: "L-shaped" },
+  { id: "straight", label: "Straight" },
+  { id: "u-shaped", label: "U-shaped" },
+  { id: "parallel", label: "Parallel" },
+];
