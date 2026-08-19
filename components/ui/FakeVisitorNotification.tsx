@@ -20,8 +20,8 @@ import {
  * Purely illustrative — this does not reflect real visitor data.
  */
 
-const CYCLE_INTERVAL_MS = 15000;
-const VISIBLE_DURATION_MS = 6000;
+const CYCLE_INTERVAL_MS = 25000;
+const VISIBLE_DURATION_MS = 5000;
 
 export function FakeVisitorNotification() {
   const [visitor, setVisitor] = useState<SocialProofVisitor | null>(null);
