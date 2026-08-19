@@ -4,19 +4,9 @@ import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
-import { CornerDownLeft, Minus, Square, Rows3, type LucideIcon } from "lucide-react";
 import EstimateProgressBar from "@/components/estimate/EstimateProgressBar";
 import KitchenLayoutCard from "@/components/estimate/KitchenLayoutCard";
 import { KITCHEN_LAYOUT_OPTIONS } from "@/constants/estimate";
-
-// Placeholder icons standing in for real layout illustrations/photos.
-// Swap these for actual images later — see KitchenLayoutCard.
-const LAYOUT_ICONS: Record<string, LucideIcon> = {
-  "l-shaped": CornerDownLeft,
-  straight: Minus,
-  "u-shaped": Square,
-  parallel: Rows3,
-};
 
 export default function KitchenLayoutPage() {
   const router = useRouter();
@@ -82,7 +72,7 @@ export default function KitchenLayoutPage() {
             >
               <KitchenLayoutCard
                 label={option.label}
-                Icon={LAYOUT_ICONS[option.id]}
+                image={option.image}
                 isSelected={selectedLayout === option.id}
                 onSelect={() => setSelectedLayout(option.id)}
               />
@@ -112,4 +102,4 @@ export default function KitchenLayoutPage() {
       </footer>
     </main>
   );
-    }
+}
