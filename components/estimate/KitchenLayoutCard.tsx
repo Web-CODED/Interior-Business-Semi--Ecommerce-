@@ -1,23 +1,18 @@
 "use client";
 
-import type { LucideIcon } from "lucide-react";
+import Image from "next/image";
 
 interface KitchenLayoutCardProps {
   label: string;
-  Icon: LucideIcon;
+  image: string;
   isSelected: boolean;
   onSelect: () => void;
 }
 
-/**
- * Selectable layout card with a placeholder icon standing in for a real
- * illustration/photo. Swap the icon area for a next/image once real
- * layout images exist — everything else (selection state, radio
- * indicator) stays the same.
- */
+/** Selectable layout card showing the real layout illustration. */
 export default function KitchenLayoutCard({
   label,
-  Icon,
+  image,
   isSelected,
   onSelect,
 }: KitchenLayoutCardProps) {
@@ -38,8 +33,14 @@ export default function KitchenLayoutCard({
         {isSelected && <span className="h-3 w-3 rounded-full bg-primary-500" />}
       </span>
 
-      <span className="flex h-32 items-center justify-center bg-primary-50 sm:h-36">
-        <Icon className="h-12 w-12 text-primary-600" strokeWidth={1.5} aria-hidden="true" />
+      <span className="relative block h-32 w-full bg-primary-50 sm:h-36">
+        <Image
+          src={image}
+          alt={`${label} kitchen layout`}
+          fill
+          sizes="(min-width: 640px) 220px, 45vw"
+          className="object-contain p-4"
+        />
       </span>
 
       <span className="px-4 py-3 text-center text-base font-semibold text-neutral-900">
