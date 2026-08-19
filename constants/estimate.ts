@@ -80,3 +80,18 @@ export const KITCHEN_LAYOUT_OPTIONS: KitchenLayoutOption[] = [
     image: "/images/kitchen-layouts/parallel.png",
   },
 ];
+
+export interface WardrobeHeightOption {
+  id: string;
+  label: string;
+}
+
+export const WARDROBE_HEIGHT_OPTIONS: WardrobeHeightOption[] = [
+  { id: "4ft", label: "4 ft" },
+  { id: "6ft", label: "6 ft" },
+  { id: "7ft", label: "7 ft" },
+  { id: "9ft", label: "9 ft" },
+];
+
+// Matches the Livspace reference: 7 ft comes pre-selected as the "standard" size.
+export const DEFAULT_WARDROBE_HEIGHT_ID = "7ft";
