@@ -4,10 +4,9 @@ import { businessLocation } from "@/constants/contact";
 /**
  * MapCard
  *
- * Interactive Google Maps embed for the footer/map section (Part 3D,
- * Section 24 spec: radius 28px, min-height 420px). The map itself is
- * a live, draggable/zoomable Google Maps iframe — the same pan/zoom
- * interaction as the reference screenshot, not a static image.
+ * Interactive Google Maps embed for the footer/map section. Height was
+ * reduced from the original 420px spec to a more compact 260–300px so it
+ * sits proportionally lighter in the footer, per updated visual direction.
  *
  * "Open in Maps" sits as a floating chip over the top-left corner,
  * linking out to the full Google Maps app/site for directions.
@@ -16,7 +15,7 @@ import { businessLocation } from "@/constants/contact";
  */
 export function MapCard() {
   return (
-    <div className="relative min-h-[420px] w-full overflow-hidden rounded-[28px] shadow-[0_6px_24px_rgba(0,0,0,0.06)]">
+    <div className="relative h-[260px] w-full overflow-hidden rounded-[28px] shadow-[0_6px_24px_rgba(0,0,0,0.06)] sm:h-[300px]">
       <a
         href={businessLocation.googleMapsUrl}
         target="_blank"
@@ -37,7 +36,7 @@ export function MapCard() {
         title={`Map showing ${businessLocation.name}'s location`}
         loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"
-        className="h-[420px] w-full border-0"
+        className="h-full w-full border-0"
         allowFullScreen
       />
     </div>
