@@ -28,10 +28,10 @@ export const estimateCards: EstimateCardItem[] = [
     href: "/estimate?type=wardrobe",
   },
   {
-    id: "kitchen",
-    icon: ChefHat,
-    title: "Kitchen",
-    description: "Get an approximate costing for your kitchen interior.",
-    href: "/estimate?type=kitchen",
-  },
+   id: "kitchen",
+  icon: ChefHat,
+  title: "Kitchen",
+  description: "Get an approximate costing for your kitchen interior.",
+  href: "/estimate/kitchen-layout?type=kitchen", // was "/estimate?type=kitchen"
+},
 ];
