@@ -1,5 +1,5 @@
 import type { LucideIcon } from "lucide-react";
-import { Instagram, Facebook, Youtube, Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Phone, Mail, MapPin, Clock } from "lucide-react";
 
 export interface FooterLink {
   label: string;
@@ -24,16 +24,33 @@ export const SERVICE_LINKS: FooterLink[] = [
   { label: "Pooja Room", href: "/catalogues#pooja-room" },
 ];
 
+/**
+ * Social icons use real brand image assets (not Lucide glyphs) so they
+ * render in their original full-colour form, matching the reference
+ * screenshot. Place the three files below in /public/images/social/.
+ */
 export interface SocialLink {
   label: string;
   href: string;
-  icon: LucideIcon;
+  iconSrc: string;
 }
 
 export const SOCIAL_LINKS: SocialLink[] = [
-  { label: "Instagram", href: "https://www.instagram.com/ganpati_interiors?igsh=MWNhcHY3eGJsbXpxcg==&igsi=MWNhcHY3eGJsbXpxcg==", icon: Instagram },
-  { label: "Facebook", href: "https://www.facebook.com/share/1JPHCCdiYo/", icon: Facebook },
-  { label: "YouTube", href: "https://youtube.com", icon: Youtube },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/ganpati_interiors?igsh=MWNhcHY3eGJsbXpxcg==&igsi=MWNhcHY3eGJsbXpxcg==",
+    iconSrc: "/images/social/instagram.png",
+  },
+  {
+    label: "Facebook",
+    href: "https://www.facebook.com/share/1JPHCCdiYo/",
+    iconSrc: "/images/social/facebook.png",
+  },
+  {
+    label: "YouTube",
+    href: "https://youtube.com",
+    iconSrc: "/images/social/youtube.png",
+  },
 ];
 
 export interface ContactRow {
@@ -56,7 +73,6 @@ export const CONTACT_ROWS: ContactRow[] = [
 ];
 
 export const LEGAL_LINKS: FooterLink[] = [
-  { label: "Privacy Policy", href: "/privacy" },
-  { label: "Terms of Service", href: "/terms" },
-  { label: "Sitemap", href: "/sitemap.xml" },
+  { label: "Privacy Policy", href: "/privacy-policy" },
+  { label: "Terms and Conditions", href: "/terms-and-conditions" },
 ];
