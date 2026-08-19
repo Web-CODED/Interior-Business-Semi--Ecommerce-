@@ -2,12 +2,15 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { BHK_TYPE_OPTIONS } from "@/constants/estimate";
 import EstimateProgressBar from "@/components/estimate/EstimateProgressBar";
 import BhkOptionCard from "@/components/estimate/BhkOptionCard";
 
 export default function BhkTypePage() {
+  const router = useRouter();
+
   const [selectedBhk, setSelectedBhk] = useState<string | null>(null);
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
 
@@ -22,9 +25,7 @@ export default function BhkTypePage() {
 
   const handleNext = () => {
     if (!canProceed) return;
-    // Placeholder: Property Details (step 2) doesn't exist yet.
-    // Selection is captured here so it's ready to pass forward once it does.
-    console.log("BHK selection:", { selectedBhk, selectedSize });
+    router.push("/estimate/contact");
   };
 
   return (
@@ -108,4 +109,3 @@ export default function BhkTypePage() {
     </main>
   );
 }
-
