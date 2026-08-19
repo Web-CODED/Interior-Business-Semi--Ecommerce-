@@ -54,11 +54,29 @@ export const BHK_TYPE_OPTIONS: BhkTypeOption[] = [
 export interface KitchenLayoutOption {
   id: string;
   label: string;
+  /** Path under /public pointing at the layout illustration */
+  image: string;
 }
 
 export const KITCHEN_LAYOUT_OPTIONS: KitchenLayoutOption[] = [
-  { id: "l-shaped", label: "L-shaped" },
-  { id: "straight", label: "Straight" },
-  { id: "u-shaped", label: "U-shaped" },
-  { id: "parallel", label: "Parallel" },
+  {
+    id: "l-shaped",
+    label: "L-shaped",
+    image: "/images/kitchen-layouts/l-shaped.png",
+  },
+  {
+    id: "straight",
+    label: "Straight",
+    image: "/images/kitchen-layouts/straight.png",
+  },
+  {
+    id: "u-shaped",
+    label: "U-shaped",
+    image: "/images/kitchen-layouts/u-shaped.png",
+  },
+  {
+    id: "parallel",
+    label: "Parallel",
+    image: "/images/kitchen-layouts/parallel.png",
+  },
 ];
