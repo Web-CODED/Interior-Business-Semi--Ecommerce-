@@ -42,7 +42,11 @@ export default function BhkTypePage() {
           <span className="text-sm font-medium text-neutral-600">1/4</span>
         </div>
         <div className="mx-auto mt-4 max-w-2xl">
-          <EstimateProgressBar currentStepIndex={0} />
+          <EstimateProgressBar
+  currentStepIndex={0}
+  totalSteps={4}
+  stepLabel="BHK Type"
+/>
         </div>
       </header>
 
