@@ -69,9 +69,15 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.label}
-                  className="flex size-[46px] items-center justify-center rounded-full bg-white/10 text-white transition-all duration-250 hover:scale-[1.08] hover:bg-primary-500"
+                  className="flex size-[46px] items-center justify-center rounded-full bg-white transition-transform duration-250 hover:-translate-y-0.5 hover:scale-[1.08]"
                 >
-                  <social.icon className="size-[18px]" />
+                  <Image
+                    src={social.iconSrc}
+                    alt=""
+                    width={24}
+                    height={24}
+                    className="size-6 object-contain"
+                  />
                 </a>
               ))}
             </div>
