@@ -21,12 +21,12 @@ export const estimateCards: EstimateCardItem[] = [
   href: "/estimate/bhk-type?type=full-interior", // was "/estimate?type=full-interior"
 },
   {
-    id: "wardrobe",
-    icon: Shirt,
-    title: "Wardrobe",
-    description: "Our estimate for your dream wardrobe.",
-    href: "/estimate?type=wardrobe",
-  },
+  id: "wardrobe",
+  icon: Shirt,
+  title: "Wardrobe",
+  description: "Our estimate for your dream wardrobe.",
+  href: "/estimate/wardrobe-height?type=wardrobe", // was "/estimate?type=wardrobe"
+},
   {
    id: "kitchen",
   icon: ChefHat,
