@@ -43,10 +43,10 @@ export default function BhkTypePage() {
         </div>
         <div className="mx-auto mt-4 max-w-2xl">
           <EstimateProgressBar
-  currentStepIndex={0}
-  totalSteps={4}
-  stepLabel="BHK Type"
-/>
+            currentStepIndex={0}
+            totalSteps={4}
+            stepLabel="BHK Type"
+          />
         </div>
       </header>
 
