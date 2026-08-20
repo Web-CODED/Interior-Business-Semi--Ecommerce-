@@ -36,10 +36,10 @@ export function BottomNav() {
         <TabLink key={item.label} item={item} />
       ))}
 
-      {/* Floating center CTA */}
+      {/* Floating center CTA — links to the Contact page */}
       <a
-        href="/#contact"
-        aria-label="Let's Begin — get a free quote"
+        href="/contact"
+        aria-label="Contact us"
         className="relative -mt-7 flex size-16 shrink-0 items-center justify-center rounded-full bg-primary-500 text-white shadow-[0_12px_36px_rgba(0,0,0,0.18)] transition-transform duration-200 active:scale-95"
       >
         <Sparkles className="size-6" strokeWidth={2} />
