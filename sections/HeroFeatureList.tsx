@@ -5,14 +5,14 @@ interface HeroFeatureListProps {
 }
 
 /**
- * Vertical, divided feature list shown under the Hero description.
- * Title stays coral/red (primary-700); description text is dark
- * neutral-900 (not grey) for stronger contrast against the photo.
- * Compact on mobile so items fit inside the shorter mobile hero.
+ * Vertical feature list shown under the Hero description.
+ * Title stays coral/red (primary-700); description text is bold dark
+ * neutral-900 for strong contrast against the photo. Compact on mobile
+ * so items fit inside the shorter mobile hero.
  */
 export function HeroFeatureList({ features }: HeroFeatureListProps) {
   return (
-    <ul className="mt-3 divide-y divide-neutral-300/70 md:mt-8">
+    <ul className="mt-3 md:mt-8">
       {features.map((feature) => {
         const Icon = feature.icon;
         return (
@@ -26,7 +26,7 @@ export function HeroFeatureList({ features }: HeroFeatureListProps) {
               <p className="text-[10px] font-semibold uppercase tracking-wide text-primary-700 md:text-sm">
                 {feature.title}
               </p>
-              <p className="mt-0.5 text-[10px] leading-snug text-neutral-900 md:text-neutral-700 md:text-sm">
+              <p className="mt-0.5 text-[10px] font-bold leading-snug text-neutral-900 md:text-sm">
                 {feature.description}
               </p>
             </div>
