@@ -44,7 +44,7 @@ export const heroSlides: HeroSlide[] = [
     description:
       "We create beautiful, functional, and timeless interiors tailored to your lifestyle.",
     ctaLabel: "Calculate Now",
-    ctaHref: "/estimate",
+    ctaHref: "/estimate/contact",
     image: {
       src: "/hero/hero1.jpg",
       alt: "Modern living room with a wood-paneled TV wall and floating console",
@@ -86,7 +86,7 @@ export const heroSlides: HeroSlide[] = [
     description:
       "We create beautiful, functional, and timeless interiors tailored to your lifestyle.",
     ctaLabel: "Get Quote",
-    ctaHref: "/estimate",
+    ctaHref: "/estimate/contact",
     image: {
       src: "/hero/hero2.jpg",
       alt: "Elegant bedroom with an arched, softly lit headboard nook",
@@ -122,7 +122,7 @@ export const heroSlides: HeroSlide[] = [
     description:
       "We create beautiful, functional, and timeless interiors tailored to your lifestyle.",
     ctaLabel: "Book Free Consultation",
-    ctaHref: "/contact",
+    ctaHref: "/estimate/contact",
     image: {
       src: "/hero/hero3.jpg",
       alt: "Cozy neutral living room with a wood slat feature wall and pendant lights",
