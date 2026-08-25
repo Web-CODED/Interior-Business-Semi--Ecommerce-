@@ -2,6 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
@@ -58,9 +59,11 @@ export function Footer() {
               kitchens, false ceilings, furniture and full-home design, built
               around how you actually live.
             </p>
-            <Button size="md" variant="primary" className="mt-6">
-              Book Consultation
-            </Button>
+            <Link href="/estimate/contact" className="mt-6 inline-block">
+              <Button size="md" variant="primary">
+                Book Consultation
+              </Button>
+            </Link>
             <div className="mt-6 flex gap-3.5">
               {SOCIAL_LINKS.map((social) => (
                 <a
