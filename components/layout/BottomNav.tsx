@@ -22,7 +22,7 @@ export function BottomNav() {
   const items: TabItem[] = [
     { label: "Home", href: "/", icon: Home },
     { label: "Catalogues", href: "/catalogues", icon: LayoutGrid },
-    { label: "Get Estimate", href: "/#contact", icon: Calculator },
+    { label: "Get Estimate", href: "/estimate/contact", icon: Calculator },
     { label: "More", icon: Menu, onClick: () => setOpen(true) },
   ];
 
