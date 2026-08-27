@@ -14,13 +14,13 @@ export interface ServiceItem {
 export const services: ServiceItem[] = [
   {
     id: "modular-interiors",
-    title: "Modular Interiors",
+    title: "Modular Kitchen",
     description: "Functional kitchen, wardrobe and storage",
     image: {
       src: "/images/services/ModularKitchen.jpeg",
       alt: "Modern living room with modular furniture",
     },
-    href: "/services/modular-interiors",
+    href: "/catalogues/modular-kitchen",
   },
   {
     id: "full-home-interiors",
