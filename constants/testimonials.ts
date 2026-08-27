@@ -12,7 +12,7 @@ export const TESTIMONIALS: Testimonial[] = [
   {
     id: "t1",
     name: "Aritree Chanda",
-    city: "Nairobi",
+    city: "Kalimpong",
     projectType: "Full Home Renovation",
     rating: 5,
     review:
@@ -24,7 +24,7 @@ Price was also reasonable..😊😊",
   {
     id: "t2",
     name: "Eti Routh",
-    city: "Austin",
+    city: "Darjeeling",
     projectType: "Kitchen Remodel",
     rating: 5,
     review:
@@ -34,7 +34,7 @@ Price was also reasonable..😊😊",
   {
     id: "t3",
     name: "Priya Nair",
-    city: "Bengaluru",
+    city: "Alipurduar",
     projectType: "Living Room",
     rating: 5,
     review:
@@ -44,7 +44,7 @@ Price was also reasonable..😊😊",
   {
     id: "t4",
     name: "Biplab Das",
-    city: "Toronto",
+    city: "Gangtok",
     projectType: "Home Office",
     rating: 5,
     review:
