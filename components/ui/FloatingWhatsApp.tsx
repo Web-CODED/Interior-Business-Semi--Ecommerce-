@@ -33,11 +33,11 @@ export function FloatingWhatsApp() {
       rel="noopener noreferrer"
       aria-label="Chat with us on WhatsApp — 1 new message"
       className="
-        fixed bottom-[92px] right-5 z-[600] flex size-[60px] items-center
+        fixed right-5 top-1/2 z-[600] flex size-[60px] -translate-y-1/2 items-center
         justify-center rounded-full bg-[#25D366] text-white
         shadow-[0_18px_48px_rgba(0,0,0,0.18)]
         transition-transform duration-200 hover:scale-[1.08]
-        md:bottom-8 md:right-8
+        md:right-8
       "
     >
       <WhatsAppIcon className="size-8" />
