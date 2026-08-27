@@ -11,22 +11,24 @@ export interface Testimonial {
 export const TESTIMONIALS: Testimonial[] = [
   {
     id: "t1",
-    name: "Amara Odhiambo",
+    name: "Aritree Chanda",
     city: "Nairobi",
     projectType: "Full Home Renovation",
     rating: 5,
     review:
-      "They listened before they designed. Every room feels like it was made for exactly how we live, not a showroom.",
+      "Had a great experience
+Work was very excellently done .
+Price was also reasonable..😊😊",
     avatar: "/images/avatars/amara.jpg",
   },
   {
     id: "t2",
-    name: "Daniel Cho",
+    name: "Eti Routh",
     city: "Austin",
     projectType: "Kitchen Remodel",
     rating: 5,
     review:
-      "The timeline they gave us on day one is the timeline we got. No surprises, no delays, and the finish quality speaks for itself.",
+      "Painting work was very good,will do kitchen and living room work very soon.liked your work and behaviour.",
     avatar: "/images/avatars/daniel.jpg",
   },
   {
@@ -36,17 +38,17 @@ export const TESTIMONIALS: Testimonial[] = [
     projectType: "Living Room",
     rating: 5,
     review:
-      "Our designer pushed back on a few of our ideas — kindly — and the final space is better because of it.",
+      "Affordable pricing, premium quality, and excellent customer service. Highly recommend.",
     avatar: "/images/avatars/priya.jpg",
   },
   {
     id: "t4",
-    name: "Marcus Webb",
+    name: "Biplab Das",
     city: "Toronto",
     projectType: "Home Office",
     rating: 5,
     review:
-      "Small project, same level of care as our friends' full renovations. That consistency is why we'd recommend them without hesitation.",
+      "My home interior was really good,living room design was best,highly liked your work",
     avatar: "/images/avatars/marcus.jpg",
   },
 ];
