@@ -70,10 +70,12 @@ export function Services() {
         </div>
 
         <div className="mt-10 flex justify-center md:mt-14">
+          <Link href ="/catalogues">
           <Button size="lg" variant="primary">
             Explore All Services
             <ArrowRight className="ml-2 size-5" strokeWidth={2} aria-hidden="true" />
           </Button>
+          </Link>
         </div>
       </Container>
     </section>
