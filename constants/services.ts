@@ -30,7 +30,7 @@ export const services: ServiceItem[] = [
       src: "/images/services/FullhomeInterior.jpeg",
       alt: "Marble kitchen island with pendant lighting",
     },
-    href: "/services/full-home-interiors",
+    href: "/catalogues/bedroom",
   },
   {
     id: "luxury-interiors",
@@ -40,7 +40,7 @@ export const services: ServiceItem[] = [
       src: "/images/services/LuxuryInterior.jpeg",
       alt: "Luxury kitchen with dark island and gold accents",
     },
-    href: "/services/luxury-interiors",
+    href: "/catalogues/living-room",
   },
   {
     id: "value-interiors",
@@ -50,7 +50,7 @@ export const services: ServiceItem[] = [
       src: "/images/services/WarmMinimal.jpeg",
       alt: "Warm minimal kitchen with wood cabinetry",
     },
-    href: "/services/value-interiors",
+    href: "/catalogues/pooja-room",
   },
   {
     id: "renovations",
@@ -60,6 +60,6 @@ export const services: ServiceItem[] = [
       src: "/images/services/Renovation.jpeg",
       alt: "Kitchen renovation in progress with exposed brick wall",
     },
-    href: "/services/renovations",
+    href: "/catalogues/sofa",
   },
 ];
