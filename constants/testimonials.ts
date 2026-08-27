@@ -16,9 +16,7 @@ export const TESTIMONIALS: Testimonial[] = [
     projectType: "Full Home Renovation",
     rating: 5,
     review:
-      "Had a great experience
-Work was very excellently done .
-Price was also reasonable..😊😊",
+      "Had a great experience.Work was very excellently done.Happy with the work.",
     avatar: "/images/avatars/amara.jpg",
   },
   {
