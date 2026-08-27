@@ -44,7 +44,7 @@ export const heroSlides: HeroSlide[] = [
     description:
       "We create beautiful, functional, and timeless interiors tailored to your lifestyle.",
     ctaLabel: "Calculate Now",
-    ctaHref: "/estimate/contact",
+    ctaHref: "/estimate/kitchen-layout",
     image: {
       src: "/hero/hero1.jpg",
       alt: "Modern living room with a wood-paneled TV wall and floating console",
