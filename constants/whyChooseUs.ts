@@ -14,26 +14,26 @@ export const whyChooseUsStats: WhyChooseUsStat[] = [
   {
     id: "happy-homes",
     icon: Heart,
-    value: "1,00,000+",
+    value: "100+",
     label: "happy homes",
   },
   {
     id: "cities",
     icon: DoorOpen,
-    value: "100+",
+    value: "5+",
     label: "cities",
   },
   {
     id: "catalogue",
     icon: Layers,
-    value: "20 lakh+",
+    value: "20 lakhs+",
     label: "catalogue products",
   },
   {
     id: "designers",
     icon: Users,
-    value: "2,000+",
-    label: "designers",
+    value: "10+",
+    label: "Experience",
   },
   {
     id: "warranty",
