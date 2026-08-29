@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { X } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { NAV_LINKS } from "@/constants/navigation";
+import Link from "next/link";
 import { useMobileMenu } from "@/components/layout/MobileMenuContext";
 
 export function MobileDrawer() {
@@ -84,9 +85,11 @@ export function MobileDrawer() {
                 </a>
               ))}
             </nav>
-            <Button size="lg" className="w-full mt-auto">
-              Book Consultation
-            </Button>
+            <Link href="/estimate/contact" className="mt-auto" onClick={() => setOpen(false)}>
+              <Button size="lg" className="w-full">
+                Book Consultation
+              </Button>
+            </Link>
           </motion.div>
         </>
       )}
