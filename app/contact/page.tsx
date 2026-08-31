@@ -7,7 +7,7 @@ export default function ContactPage() {
   return (
     <>
       <Header />
-      <main className="bg-white">
+      <main className="overflow-x-hidden bg-white">
         <section className="mx-auto max-w-[1280px] px-5 py-14 md:px-10 md:py-24">
           <p className="text-xs font-semibold uppercase tracking-[0.08em] text-primary-600">
             Get in touch
@@ -19,20 +19,20 @@ export default function ContactPage() {
             Reach out for a free consultation, or drop by our Siliguri studio.
           </p>
 
-          <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:gap-14">
+          <div className="mt-10 grid min-w-0 gap-10 lg:grid-cols-[1fr_1.1fr] lg:gap-14">
             {/* Left: contact details + map */}
-            <div className="space-y-8">
-              <div className="grid gap-4 sm:grid-cols-2">
+            <div className="min-w-0 space-y-8">
+              <div className="grid min-w-0 gap-4 sm:grid-cols-2">
                 {CONTACT_ROWS.map((row) => (
                   <ContactRowCard key={row.label} row={row} />
                 ))}
               </div>
 
-              <div className="overflow-hidden rounded-[24px] shadow-[0_6px_24px_rgba(0,0,0,0.06)]">
+              <div className="min-w-0 overflow-hidden rounded-[24px] shadow-[0_6px_24px_rgba(0,0,0,0.06)]">
                 <iframe
                   title="Ganpati Interiors location"
                   src="https://www.google.com/maps?q=Pradhan+Nagar+Siliguri+734003&output=embed"
-                  className="h-[320px] w-full border-0"
+                  className="block h-[320px] w-full border-0"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                 />
@@ -40,7 +40,7 @@ export default function ContactPage() {
             </div>
 
             {/* Right: enquiry form */}
-            <div className="rounded-[28px] bg-white p-6 shadow-[0_18px_48px_rgba(0,0,0,0.12)] sm:p-8">
+            <div className="min-w-0 rounded-[28px] bg-white p-6 shadow-[0_18px_48px_rgba(0,0,0,0.12)] sm:p-8">
               <h2 className="text-xl font-bold text-neutral-900">Send us a message</h2>
               <p className="mt-1.5 text-sm text-neutral-600">
                 We typically respond within a few hours.
@@ -88,4 +88,3 @@ function ContactRowCard({ row }: { row: ContactRow }) {
 
   return content;
 }
-
