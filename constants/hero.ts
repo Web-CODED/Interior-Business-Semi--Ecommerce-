@@ -44,7 +44,6 @@ export const heroSlides: HeroSlide[] = [
       focalPoint: "center 40%",
     },
     features: [
-    features: [
       {
         icon: Users,
         title: "Premium Touch",
