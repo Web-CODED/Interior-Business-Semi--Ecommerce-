@@ -179,7 +179,7 @@ export function Footer() {
         <div className="mt-14 h-px w-full bg-white/15" />
 
         <div className="mt-8 flex flex-col gap-4 text-small text-white/70 lg:flex-row lg:items-center lg:justify-between">
-          <p>&copy; {new Date().getFullYear()} Ganpati Interiors. All rights reserved. <br>Design and Developed by Rana Routh</br></p>
+          <p>&copy; {new Date().getFullYear()} Ganpati Interiors. All rights reserved. <br/>Design and Developed by Rana Routh</p>
           <div className="flex flex-wrap gap-x-6 gap-y-2">
             {LEGAL_LINKS.map((link) => (
               <a
