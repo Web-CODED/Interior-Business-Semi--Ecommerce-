@@ -44,26 +44,26 @@ export const heroSlides: HeroSlide[] = [
       focalPoint: "center 40%",
     },
     features: [
+    features: [
       {
         icon: Users,
-        title: "Personalized Approach",
-        description: "We listen, understand & design spaces that reflect you.",
+        title: "Premium Touch",
+        description: "Designs to match your taste",
       },
       {
         icon: Lightbulb,
         title: "Innovative Solutions",
-        description:
-          "Creative ideas that blend aesthetics with everyday functionality.",
+        description: "Creative ideas, premium spaces",
       },
       {
         icon: Award,
         title: "Trusted Quality",
-        description: "Premium quality materials and finishes you can rely on.",
+        description: "Premium materials to rely on",
       },
       {
         icon: Clock,
         title: "Timely Delivery",
-        description: "On time execution with complete transparency at every step.",
+        description: "Transparent execution, on schedule",
       },
     ],
   },
