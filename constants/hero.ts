@@ -2,7 +2,6 @@ import type { LucideIcon } from "lucide-react";
 import {
   Users,
   Lightbulb,
-  Layers,
   Award,
   Clock,
   Armchair,
@@ -25,12 +24,6 @@ export interface HeroSlide {
   image: {
     src: string;
     alt: string;
-    /**
-     * CSS object-position value, e.g. "center 30%".
-     * Lets each slide's crop be tuned individually instead of a single
-     * global object-position — a tight close-up (like the bedroom nook)
-     * needs a different focal point than a wide living-room shot.
-     */
     focalPoint: string;
   };
   features: HeroFeature[];
@@ -61,11 +54,6 @@ export const heroSlides: HeroSlide[] = [
         title: "Innovative Solutions",
         description:
           "Creative ideas that blend aesthetics with everyday functionality.",
-      },
-      {
-        icon: Layers,
-        title: "Space Optimization",
-        description: "Smart layouts to make the best use of every inch.",
       },
       {
         icon: Award,
