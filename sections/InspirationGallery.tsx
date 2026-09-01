@@ -17,6 +17,11 @@ import { INSPIRATION_ITEMS } from "@/constants/inspiration";
  * Design Inspiration carousel + category filter chips (Part 3A — Sections 2 & 3).
  * Auto-advances every 3.5s; manual swipe/arrow interaction still works and
  * autoplay resumes afterward (disableOnInteraction: false).
+ *
+ * Mobile uses slidesPerView="auto" (not a fixed 1.08) so Swiper measures the
+ * card's real rendered width (fixed px, see InspirationCard) instead of
+ * assuming container-width / 1.08 — that mismatch was what caused the
+ * centered slide to clip on the left.
  */
 export function InspirationGallery() {
   const [activeCategory, setActiveCategory] = useState("all");
@@ -68,13 +73,13 @@ export function InspirationGallery() {
         </div>
       </Container>
 
-      {/* Mobile: one centered reel at a time, slight peek of neighbors.
-          Tablet/desktop: reverts to the multi-card bleed layout. */}
+      {/* Mobile: one centered reel at a time, equal peek of neighbors on both
+          sides. Tablet/desktop: reverts to the multi-card bleed layout. */}
       <div className="px-6 md:px-0 md:pl-16 lg:pl-20">
         <Swiper
           modules={[Navigation, Autoplay]}
           onSwiper={(swiper) => (swiperRef.current = swiper)}
-          slidesPerView={1.08}
+          slidesPerView="auto"
           centeredSlides
           spaceBetween={16}
           loop
