@@ -17,6 +17,12 @@ export interface InspirationCardProps {
  * clip that plays automatically once ~60% visible in the viewport and
  * pauses the moment it scrolls out — independent of carousel position.
  * "View on Instagram" links out to the real reel.
+ *
+ * Width is a fixed px value (not vw) on mobile. Swiper's slidesPerView="auto"
+ * measures this rendered width directly to center the active slide, so a
+ * viewport-relative unit here would cause a mismatch between where Swiper
+ * thinks the card sits and where it actually renders — which is what caused
+ * the left-edge clipping.
  */
 export function InspirationCard({ title, subtitle, video, poster, instagramUrl }: InspirationCardProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -38,7 +44,7 @@ export function InspirationCard({ title, subtitle, video, poster, instagramUrl }
   return (
     <div
       ref={wrapperRef}
-      className="group relative h-[460px] md:h-[390px] w-[78vw] max-w-[320px] md:w-[290px] shrink-0 overflow-hidden rounded-card bg-neutral-900"
+      className="group relative h-[460px] md:h-[390px] w-[280px] md:w-[290px] shrink-0 overflow-hidden rounded-card bg-neutral-900"
     >
       <video
         ref={videoRef}
