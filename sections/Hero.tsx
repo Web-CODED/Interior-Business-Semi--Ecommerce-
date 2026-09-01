@@ -71,7 +71,6 @@ export function Hero() {
                 <div className="max-h-full max-w-[560px] overflow-y-auto pb-16 md:overflow-visible md:pb-32">
                   <p className="flex items-center gap-2.5 text-[11px] font-semibold uppercase tracking-[0.08em] text-primary-700 md:gap-3 md:text-sm">
                     {slide.eyebrow}
-                    <span className="h-px w-6 bg-primary-700 md:w-8" aria-hidden="true" />
                   </p>
 
                   <h1
@@ -113,7 +112,7 @@ export function Hero() {
         <Link
           href={heroSlides[activeIndex].ctaHref}
           className="
-            inline-flex h-10 items-center gap-2 rounded-2xl bg-primary-700
+            inline-flex h-10 items-center justify-center gap-2 whitespace-nowrap rounded-2xl bg-primary-700
             px-5 text-sm font-semibold text-white shadow-[0_12px_36px_rgba(0,0,0,0.14)]
             transition-all duration-200 hover:-translate-y-0.5 hover:bg-primary-800 hover:shadow-[0_18px_42px_rgba(0,0,0,0.16)]
             md:h-14 md:px-8 md:text-base
