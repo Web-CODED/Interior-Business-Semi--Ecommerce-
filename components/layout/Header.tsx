@@ -1,5 +1,4 @@
 "use client";
-
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Menu } from "lucide-react";
@@ -8,6 +7,7 @@ import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
 import { NAV_LINKS } from "@/constants/navigation";
 import { useMobileMenu } from "@/components/layout/MobileMenuContext";
+import { playfair } from "@/lib/fonts";
 
 /**
  * Sticky site header (Part 2, revised). Always solid white — no longer
@@ -16,6 +16,10 @@ import { useMobileMenu } from "@/components/layout/MobileMenuContext";
  * subtle "settled" feel; only the height/shadow change, not the color.
  * The mobile hamburger and the BottomNav's "More" button share one drawer
  * via MobileMenuContext, so either entry point opens the same panel.
+ *
+ * Logo: icon image + "Ganpati Interiors" set in code (not a wordmark PNG),
+ * in the brand serif (Playfair) and the coral brand color (#FF4A5C) —
+ * mirrors the footer's icon + text lockup.
  */
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -38,24 +42,21 @@ export function Header() {
       )}
     >
       <Container className="flex h-full items-center justify-between">
-        <a href="/" className="flex items-center gap-2 lg:gap-3" aria-label="Ganpati Interiors — Home">
-  <Image
-    src="/images/logo-icon.png"
-    alt=""
-    width={953}
-    height={909}
-    priority
-    className="h-10 lg:h-14 w-auto object-contain shrink-0"
-  />
-  <Image
-    src="/images/logo-wordmark.png"
-    alt="Ganpati Interiors"
-    width={1238}
-    height={434}
-    priority
-    className="h-8 lg:h-11 w-auto object-contain shrink-0"
-  />
-</a>
+        <a href="/" className="flex items-center gap-2.5 lg:gap-3" aria-label="Ganpati Interiors — Home">
+          <Image
+            src="/images/logo-icon.png"
+            alt=""
+            width={953}
+            height={909}
+            priority
+            className="h-9 lg:h-12 w-auto object-contain shrink-0"
+          />
+          <span
+            className={`${playfair.className} text-[19px] lg:text-[26px] font-bold leading-none text-[#FF4A5C] shrink-0`}
+          >
+            Ganpati Interiors
+          </span>
+        </a>
 
         <nav className="hidden lg:flex items-center gap-9" aria-label="Primary">
           {NAV_LINKS.map((link) => (
@@ -86,4 +87,4 @@ export function Header() {
       </Container>
     </header>
   );
-}
+  }
