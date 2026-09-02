@@ -17,7 +17,7 @@ export const TESTIMONIALS: Testimonial[] = [
     rating: 5,
     review:
       "Had a great experience.Work was very excellently done.Happy with the work.",
-    avatar: "/images/avatars/amara.jpg",
+    avatar: "/images/avatars/aritree.jpeg",
   },
   {
     id: "t2",
@@ -27,7 +27,7 @@ export const TESTIMONIALS: Testimonial[] = [
     rating: 5,
     review:
       "Painting work was very good,will do kitchen and living room work very soon.liked your work and behaviour.",
-    avatar: "/images/avatars/daniel.jpg",
+    avatar: "/images/avatars/Eti.jpeg",
   },
   {
     id: "t3",
@@ -37,7 +37,7 @@ export const TESTIMONIALS: Testimonial[] = [
     rating: 5,
     review:
       "Affordable pricing, premium quality, and excellent customer service. Highly recommend.",
-    avatar: "/images/avatars/priya.jpg",
+    avatar: "/images/avatars/Priya.jpeg",
   },
   {
     id: "t4",
@@ -47,6 +47,6 @@ export const TESTIMONIALS: Testimonial[] = [
     rating: 5,
     review:
       "My home interior was really good,living room design was best,highly liked your work",
-    avatar: "/images/avatars/marcus.jpg",
+    avatar: "/images/avatars/Biplab.jpeg",
   },
 ];
