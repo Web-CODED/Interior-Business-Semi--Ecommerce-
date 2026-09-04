@@ -57,7 +57,7 @@ export const TESTIMONIALS: Testimonial[] = [
     rating: 4.9,
     review:
       "Low budget investment, High quality of work - on time delivery",
-    avatar: "/images/avatars/Biplab.jpeg",
+    avatar: "/images/avatars/Rajdip.jpeg",
   },
     {
     id: "t6",
@@ -67,7 +67,7 @@ export const TESTIMONIALS: Testimonial[] = [
     rating: 5,
     review:
       "Full-home design is the best choice to move with them, elegant design and hassel free delivery",
-    avatar: "/images/avatars/Biplab.jpeg",
+    avatar: "/images/avatars/Prantika.jpeg",
   },
     {
     id: "t7",
@@ -77,7 +77,7 @@ export const TESTIMONIALS: Testimonial[] = [
     rating: 5,
     review:
       "My dreams got full filled due to them. Intense hardwork turns up every corner",
-    avatar: "/images/avatars/Biplab.jpeg",
+    avatar: "/images/avatars/Sunil.jpeg",
   },
     {
     id: "t8",
@@ -87,6 +87,6 @@ export const TESTIMONIALS: Testimonial[] = [
     rating: 5,
     review:
       "My home interior was really good,living room design was best,highly liked your work",
-    avatar: "/images/avatars/Biplab.jpeg",
+    avatar: "/images/avatars/Bivash.jpeg",
   },
 ];
