@@ -52,23 +52,23 @@ export function FakeVisitorNotification() {
   return (
     <div
       className="
-        fixed bottom-[92px] left-5 z-[600] max-w-[280px]
-        rounded-2xl bg-white p-4 shadow-[0_18px_48px_rgba(0,0,0,0.12)]
+        fixed bottom-[84px] left-4 z-[600] max-w-[220px]
+        rounded-xl bg-white p-2.5 shadow-[0_12px_32px_rgba(0,0,0,0.10)]
         animate-in fade-in slide-in-from-bottom-2 duration-300
-        md:bottom-8 md:left-8
+        md:bottom-6 md:left-6
       "
       role="status"
       aria-live="polite"
     >
-      <div className="flex items-start gap-2.5">
-        <span className="mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-full bg-success-100 text-success-700">
-          <MapPin className="size-4" strokeWidth={2} aria-hidden="true" />
+      <div className="flex items-start gap-2">
+        <span className="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full bg-success-100 text-success-700">
+          <MapPin className="size-3" strokeWidth={2} aria-hidden="true" />
         </span>
         <div>
-          <p className="text-sm font-semibold leading-snug text-neutral-900">
+          <p className="text-xs font-semibold leading-snug text-neutral-900">
             {visitor.name} visited from {visitor.location}
           </p>
-          <p className="mt-0.5 text-xs text-neutral-500">
+          <p className="mt-0.5 text-[11px] text-neutral-500">
             {formatMinutesAgo(visitor.minutesAgo)}
           </p>
         </div>
