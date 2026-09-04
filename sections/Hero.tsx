@@ -83,9 +83,6 @@ export function Hero() {
                     ))}
                   </h1>
 
-                  <p className="mt-2.5 max-w-[480px] text-[13px] leading-[1.55] text-neutral-700 md:mt-5 md:text-lg md:leading-[1.7]">
-                    {slide.description}
-                  </p>
 
                   <HeroFeatureList features={slide.features} />
                 </div>
