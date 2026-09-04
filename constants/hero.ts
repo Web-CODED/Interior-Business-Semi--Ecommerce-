@@ -34,8 +34,6 @@ export const heroSlides: HeroSlide[] = [
     id: "living-room",
     eyebrow: "Designing spaces that",
     headlineLines: ["Inspire", "Comfort &", "Style"],
-    description:
-      "We create beautiful, functional, and timeless interiors tailored to your lifestyle.",
     ctaLabel: "Calculate Now",
     ctaHref: "/estimate/kitchen-layout",
     image: {
@@ -54,11 +52,7 @@ export const heroSlides: HeroSlide[] = [
         title: "Innovative Solutions",
         description: "Creative ideas, premium spaces",
       },
-      {
-        icon: Award,
-        title: "Trusted Quality",
-        description: "Premium materials to rely on",
-      },
+      
       {
         icon: Clock,
         title: "Timely Delivery",
@@ -70,8 +64,7 @@ export const heroSlides: HeroSlide[] = [
     id: "bedroom",
     eyebrow: "Designing spaces that",
     headlineLines: ["Inspire", "Comfort &", "Style"],
-    description:
-      "We create beautiful, functional, and timeless interiors tailored to your lifestyle.",
+    
     ctaLabel: "Get Quote",
     ctaHref: "/estimate/contact",
     image: {
@@ -95,19 +88,14 @@ export const heroSlides: HeroSlide[] = [
         title: "Multiple Concepts",
         description: "Explore multiple ideas before finalizing",
       },
-      {
-        icon: CalendarClock,
-        title: "On-Time Delivery",
-        description: "Committed to deadlines you can trust",
-      },
+      
     ],
   },
   {
     id: "living-room-warm",
     eyebrow: "Designing spaces that",
     headlineLines: ["Inspire", "Comfort &", "Style"],
-    description:
-      "We create beautiful, functional, and timeless interiors tailored to your lifestyle.",
+    
     ctaLabel: "Book Free Consultation",
     ctaHref: "/estimate/contact",
     image: {
@@ -131,11 +119,7 @@ export const heroSlides: HeroSlide[] = [
         title: "Innovative Ideas",
         description: "Creative solutions for every space",
       },
-      {
-        icon: Clock,
-        title: "On-Time Delivery",
-        description: "Committed to deadlines you can trust",
-      },
+      
     ],
   },
 ];
