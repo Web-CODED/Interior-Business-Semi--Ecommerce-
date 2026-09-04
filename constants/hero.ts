@@ -18,7 +18,7 @@ export interface HeroSlide {
   id: string;
   eyebrow: string;
   headlineLines: string[];
-  description: string;
+  
   ctaLabel: string;
   ctaHref: string;
   image: {
