@@ -9,6 +9,7 @@ import { WhyChooseUs } from "@/sections/WhyChooseUs";
 import { Testimonials } from "@/sections/Testimonials";
 import { Process } from "@/sections/Process";
 import { Statistics } from "@/sections/Statistics";
+import { FAQSection } from "@/sections/FAQSection";
 
 export default function HomePage() {
   return (
@@ -24,8 +25,9 @@ export default function HomePage() {
         <Testimonials />
         <Process />
         <Statistics />
+        <FAQSection />
         {/* Next up: EstimateCalculator, ProjectShowcase, BeforeAfter, Gallery,
-            Awards, Media, FAQ, FinalCTA, Newsletter */}
+            Awards, Media, FinalCTA, Newsletter */}
       </main>
       <Footer />
     </>
