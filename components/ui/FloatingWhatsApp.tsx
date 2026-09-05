@@ -16,19 +16,24 @@ export function FloatingWhatsApp() {
       aria-label="Chat with us on WhatsApp — 2 new messages"
       className="
         fixed right-5 top-1/2 z-[600] flex size-[60px] -translate-y-1/2 items-center
-        justify-center rounded-full overflow-hidden
+        justify-center rounded-full
         shadow-[0_18px_48px_rgba(0,0,0,0.18)]
         transition-transform duration-200 hover:scale-[1.08]
         md:right-8
       "
     >
-      <Image
-        src="/whatsapp-icon.png"
-        alt=""
-        width={60}
-        height={60}
-        className="size-full object-cover"
-      />
+      {/* overflow-hidden lives here, not on the outer <a>, so the badge
+          below (which intentionally sits slightly outside the circle)
+          never gets clipped. */}
+      <div className="relative size-full overflow-hidden rounded-full">
+        <Image
+          src="/whatsapp-icon.png"
+          alt=""
+          width={60}
+          height={60}
+          className="size-full object-cover"
+        />
+      </div>
 
       {/* Notification badge */}
       <span
