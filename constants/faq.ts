@@ -26,20 +26,13 @@ export const FAQ_ITEMS: FAQItem[] = [
     question: "What services are included in home interior design?",
     answer: [
       "We handle end-to-end execution — modular kitchens and wardrobes, false ceilings, painting, electrical and plumbing coordination, flooring, and civil work — for both new homes and renovations.",
-
     ],
   },
   {
     id: "faq-4",
     question: "How much do home interiors cost?",
     answer: [
-      "Cost depends on your home's size, the materials you choose, and the scope of work. Following are the standard costs for the respective types of project:
-1 BHK - Starting at 3.62L*
-2 BHK - Starting at 4.52L*
-3 BHK - Starting at 5.57L*
-4 BHK - Starting at 6.33L*
-Modular Kitchens - Starting at 70K*
-*The prices include only modular interiors for new homes.",
+      "Cost depends on your home's size, the materials you choose, and the scope of work. Following are the standard costs for the respective types of project:\n1 BHK - Starting at 3.62L*\n2 BHK - Starting at 4.52L*\n3 BHK - Starting at 5.57L*\n4 BHK - Starting at 6.33L*\nModular Kitchens - Starting at 70K*\n*The prices include only modular interiors for new homes.",
       "We'll give you a detailed, itemised estimate during your free consultation — no hidden charges.",
     ],
   },
@@ -56,7 +49,6 @@ Modular Kitchens - Starting at 70K*
     question: "What interior design styles do you offer?",
     answer: [
       "We work across a range of styles to match your taste — Modern, Minimalist, Contemporary, Traditional Indian, and more.",
-      
     ],
   },
 ];
