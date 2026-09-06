@@ -60,8 +60,10 @@ export function FAQAccordion({ items, defaultOpenId }: FAQAccordionProps) {
                 >
                   <div className="max-w-[95%] space-y-4 pt-4 text-[16px] leading-[180%] text-neutral-700">
                     {item.answer.map((paragraph, index) => (
-                      <p key={index}>{paragraph}</p>
-                    ))}
+  <p key={index} className="whitespace-pre-line">
+    {paragraph}
+  </p>
+))}
                   </div>
                 </motion.div>
               )}
