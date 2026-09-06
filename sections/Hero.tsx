@@ -109,9 +109,9 @@ export function Hero() {
         <Link
           href={heroSlides[activeIndex].ctaHref}
           className="
-  inline-flex h-10 items-center justify-center gap-2 whitespace-nowrap rounded-2xl bg-primary-700
+  inline-flex h-10 items-center justify-center gap-2 whitespace-nowrap rounded-2xl bg-[#FF4A5C]
   px-5 text-sm font-semibold text-white shadow-[0_12px_36px_rgba(0,0,0,0.14)]
-  transition-all duration-200 hover:-translate-y-0.5 hover:bg-primary-800 hover:shadow-[0_18px_42px_rgba(0,0,0,0.16)]
+  transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#E63347] hover:shadow-[0_18px_42px_rgba(0,0,0,0.16)]
   md:h-14 md:px-8 md:text-base
 "
         >
